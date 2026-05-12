@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #1d0e0c;
+    background-color: #f9e8e1;
+}
+
+header, nav, main, footer {
+    display: flex;
+    width: auto;
+    height: auto;
+}
+
+.keret_fejlec, .keret_navigacio, .keret_lablec, #cim {
+    height: auto;
+    margin: auto;
+}
+
+header {
+    background-color: #d01212;
+}
+
+.keret_fejlec {
+    margin: 2.5rem;
+}
