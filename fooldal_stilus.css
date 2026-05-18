@@ -4,8 +4,10 @@
 }
 
 body {
-    color: #1d0e0c;
-    background-color: #f9e8e1;
+    color: #1D0E0C;
+    background-color: #FFF5E5;
+    font-family: 'Calibri';
+    text-shadow: 0 0 3px #1D0E0C;
 }
 
 header, nav, main, footer {
@@ -14,15 +16,65 @@ header, nav, main, footer {
     height: auto;
 }
 
-.keret_fejlec, .keret_navigacio, .keret_lablec, #cim {
+.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, #cim {
     height: auto;
     margin: auto;
 }
 
 header {
-    background-color: #d01212;
+    background-color: #D92243;
+    height: 125px;
+    border: 5px solid #1D0E0C;
+    border-bottom: 2.5px solid #1D0E0C;
 }
 
-.keret_fejlec {
-    margin: 2.5rem;
+nav {
+    background-color: #F69D39;
+    height: 62.5px;
+    border: 5px solid #1D0E0C;
+    border-top: 2.5px solid #1D0E0C;
+    border-bottom: 2.5px solid #1D0E0C;
+}
+
+main {
+    height: 500px;
+    border: 5px solid #1D0E0C;
+    border-top: 2.5px solid #1D0E0C;
+    border-bottom: 2.5px solid #1D0E0C;
+}
+
+footer {
+    background-color: #D92243;
+    height: 125px;
+    border: 5px solid #1D0E0C;
+    border-top: 2.5px solid #1D0E0C;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+p {
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 0 0 1px #1D0E0C;
+    letter-spacing: 1px;
+}
+
+button {
+    width: 125px;
+    height: 62.5px;
+    background-color: #E0C375;
+    border: none;
+}
+
+img {
+    height: 62.5px;
+}
+
+.keret_navigacio {
+    border-left: 5px solid #1D0E0C;
+    border-right: 5px solid #1D0E0C;
 }
