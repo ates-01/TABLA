@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TÁBLA - Adminisztrációs felület</title>
+    <title>TÁBLA - Adminisztrációs felület (nincs bejelentkezve)</title>
 
     <link rel="stylesheet" href="./fooldal_stilus.css">
     <link rel="icon" type="image/x-icon" href="./kepek/favicon.png">
 
-    <script src="./"></script>
+    <script src="./orarend.js" defer></script>
 </head>
 <body>
     <header>
         <div class="keret_fejlec">
-            <img src="./kepek/logo.png" alt="A TÁBLA logója." title="TÁBLA - Adminisztrációs felület" id="logo">
+            <img src="./kepek/logo.png" alt="A TÁBLA logója." title="TÁBLA - Adminisztrációs felület (nincs bejelentkezve)" id="logo">
         </div>
 
         <div class="keret_fejlec">
-            <h1>TÁBLA - Nincs bejelentkezve!</h1>
+            <h1 title="A tanulók, illetve az osztályzatok kezeléséhez jelentkezzen be vagy regisztráljon fiókot!">TÁBLA - Nincs bejelentkezve!</h1>
         </div>
     </header>
 
     <nav>
         <div class="keret_navigacio">
-            <button>Tanuló kiválasztása</button>
+            <button disabled>Tanuló kiválasztása</button>
         </div>
 
         <div class="keret_navigacio">
-            <button>Órarend</button>
+            <button onclick="orarendLetrehozas()">Órarend</button>
         </div>
 
         <div class="keret_navigacio">
-            <button>Osztályzatok lekérdezése</button>
+            <button disabled>Osztályzatok lekérdezése</button>
         </div>
 
         <div class="keret_navigacio">
-            <button>Adatok törlése</button>
+            <button onclick="adatokTorlese()">Adatok törlése</button>
         </div>
 
         <div class="keret_navigacio">
@@ -46,21 +46,19 @@
         </div>
     </nav>
 
-    <main>
-        <div class="keret_fo">
-            <p>Nincs sürgős teendő!</p>
-        </div>
-    </main>
+    <main id="parent"></main>
 
     <footer>
-        <h1 id="cim">TÁBLA - Nem kell hozzá kréta!</h1>
+        <div class="keret_lablec">
+            <h1>TÁBLA - Nem kell hozzá kréta!</h1>
+        </div>
         
         <div class="keret_lablec">
-            <p>Minden jog fenntartva ©</p>
+            <p title="Education System Hungary">edu.system 2026.</p>
         </div>
-
+        
         <div class="keret_lablec">
-            <p>edu.system 2026.</p>
+            <p title="Hivatalos gyártótól származó, védett weboldal.">Minden jog fenntartva! ©</p>
         </div>
     </footer>
 </body>

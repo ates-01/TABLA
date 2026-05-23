@@ -7,7 +7,7 @@ body {
     color: #1D0E0C;
     background-color: #FFF5E5;
     font-family: 'Calibri';
-    text-shadow: 3px 0 3px #1D0E0C;
+    text-shadow: 1px 0 1px #1D0E0C;
 }
 
 header, nav, main, footer {
@@ -52,6 +52,7 @@ footer {
 
 h1 {
     font-size: 40px;
+    font-style: normal;
     text-align: center;
     letter-spacing: 3px;
 }
@@ -80,6 +81,26 @@ button:hover {
     transition: .125s;
 }
 
+button:disabled {
+    color: white;
+    background-color: darkgrey;
+    text-shadow: 1px 0 1px white;
+    cursor: not-allowed;
+}
+
+table {
+    margin: auto;
+}
+
+th, tr {
+    border: 5px solid #1D0E0C;
+}
+
+td {
+    padding: 10px;
+    border: 5px solid #1D0E0C;
+}
+
 .keret_navigacio {
     border-left: 5px solid #1D0E0C;
     border-right: 5px solid #1D0E0C;
@@ -96,4 +117,8 @@ button:hover {
 
 #logo {
     width: 250px;
+}
+
+#cim {
+    margin: 0 0 2.5rem 0;
 }
