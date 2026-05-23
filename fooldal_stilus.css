@@ -7,7 +7,7 @@ body {
     color: #1D0E0C;
     background-color: #FFF5E5;
     font-family: 'Calibri';
-    text-shadow: 0 0 3px #1D0E0C;
+    text-shadow: 3px 0 3px #1D0E0C;
 }
 
 header, nav, main, footer {
@@ -59,7 +59,7 @@ h1 {
 p {
     font-size: 24px;
     text-align: center;
-    text-shadow: 0 0 1px #1D0E0C;
+    text-shadow: 1px 0 1px #1D0E0C;
     letter-spacing: 1px;
 }
 
@@ -70,7 +70,7 @@ button {
     background-color: #E0C375;
     font-size: 24px;
     font-family: 'Calibri';
-    text-shadow: 0 0 1px #1D0E0C;
+    text-shadow: 1px 0 1px #1D0E0C;
     border: none;
     transition: .125s;
 }
@@ -85,7 +85,15 @@ button:hover {
     border-right: 5px solid #1D0E0C;
 }
 
+.keret_lablec {
+    font-style: italic;
+}
+
 .logreg {
     height: 62.5px;
     margin: 0 1rem;
+}
+
+#logo {
+    width: 250px;
 }
