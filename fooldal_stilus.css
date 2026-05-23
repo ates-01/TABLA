@@ -37,7 +37,7 @@ nav {
 }
 
 main {
-    height: 500px;
+    height: 750px;
     border: 5px solid #1D0E0C;
     border-top: 2.5px solid #1D0E0C;
     border-bottom: 2.5px solid #1D0E0C;
@@ -66,15 +66,26 @@ p {
 button {
     width: 125px;
     height: 62.5px;
+    color: #1D0E0C;
     background-color: #E0C375;
+    font-size: 24px;
+    font-family: 'Calibri';
+    text-shadow: 0 0 1px #1D0E0C;
     border: none;
+    transition: .125s;
 }
 
-img {
-    height: 62.5px;
+button:hover {
+    background-color: #F1D486;
+    transition: .125s;
 }
 
 .keret_navigacio {
     border-left: 5px solid #1D0E0C;
     border-right: 5px solid #1D0E0C;
+}
+
+.logreg {
+    height: 62.5px;
+    margin: 0 1rem;
 }
