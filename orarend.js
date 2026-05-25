@@ -33,11 +33,97 @@ function orarendLetrehozas()
                 <td class="elso_oszlop" rowspan="2">Hétfő</td>
                 <td rowspan="2"></td>
                 <td rowspan="2">köznev</td>
+                <td>mat</td>
+                <td>ang</td>
+                <td rowspan="2">test</td>
+                <td rowspan="2">iro</td>
+                <td rowspan="2">tört</td>
+                <td rowspan="2">fiz</td>
+                <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td class="elso_oszlop"></td>
-                <td></td>
+                <td>mat</td>
+                <td>ang</td>
+            </tr>
+
+            <tr>
+                <td class="elso_oszlop" rowspan="4">Kedd</td>
+                <td rowspan="4"></td>
+                <td rowspan="2">nyt</td>
+                <td rowspan="2" colspan="2">szang</td>
+                <td rowspan="2">mat</td>
+                <td rowspan="2">ang</td>
+                <td colspan="2">webpr</td>
+                <td rowspan="4"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">webpr</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">nyt</td>
+                <td rowspan="2" colspan="2">aalkf</td>
+                <td rowspan="2" colspan="2">adatbkl</td>
+                <td>webpr</td>
+                <td rowspan="2"></td>
+            </tr>
+
+            <tr>
+                <td>webpr</td>
+            </tr>
+
+            <tr>
+                <td class="elso_oszlop" rowspan="2">Szerda</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">fiz</td>
+                <td rowspan="2">hit</td>
+                <td>ang</td>
+                <td rowspan="2">tört</td>
+                <td rowspan="2">iro</td>
+                <td colspan="2">aalkf</td>
+                <td rowspan="2">test</td>
+            </tr>
+
+            <tr>
+                <td>ang</td>
+                <td>nyt</td>
+                <td>mat</td>
+            </tr>
+
+            <tr>
+                <td class="elso_oszlop" rowspan="2">Csütörtök</td>
+                <td rowspan="2"></td>
+                <td colspan="2">webpr</td>
+                <td rowspan="2">iro</td>
+                <td colspan="2">adatbkl</td>
+                <td colspan="2">aalkf</td>
+                <td rowspan="2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">webpr</td>
+                <td colspan="2">aalkf</td>
+                <td colspan="2">szang</td>
+            </tr>
+
+            <tr>
+                <td class="elso_oszlop" rowspan="2">Péntek</td>
+                <td rowspan="2">hit</td>
+                <td>mat</td>
+                <td rowspan="2">tört</td>
+                <td>ang</td>
+                <td rowspan="2">test</td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+            </tr>
+
+            <tr>
+                <td>mat</td>
+                <td>ang</td>
             </tr>
         </table>
     </div>`
