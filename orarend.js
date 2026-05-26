@@ -30,70 +30,70 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2"><strong>Hétfő</strong></td>
+                <td rowspan="2"><strong>Hétfő</strong></td>
                 <td rowspan="2"></td>
-                <td rowspan="2">köznev</td>
-                <td>mat</td>
-                <td>ang</td>
-                <td rowspan="2">test</td>
-                <td rowspan="2">iro</td>
-                <td rowspan="2">tört</td>
-                <td rowspan="2">fiz</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály')">köznev</td>
+                <td onclick="oraTulajdonsagok('Borbély Katalin', '6', 16, 'haladó angol')">mat</td>
+                <td onclick="oraTulajdonsagok('Kristó Ágnes', '21', 16, 'haladó angol')">ang</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Soltész Gábor', 'Tornaterem', 32, 'egész osztály')">test</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Pádár Miklós', '1', 32, 'egész osztály')">tört</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Marczin Attila', '9', 32, 'egész osztály')">fiz</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td>mat</td>
-                <td>ang</td>
+                <td onclick="oraTulajdonsagok('Kovács Zsuzsanna', '7', 16, 'kezdő angol')">mat</td>
+                <td onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '17', 16, 'kezdő angol')">ang</td>
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="4"><strong>Kedd</strong></td>
+                <td rowspan="4"><strong>Kedd</strong></td>
                 <td rowspan="4"></td>
-                <td rowspan="2">nyt</td>
-                <td rowspan="2" colspan="2">szang</td>
-                <td rowspan="2">mat</td>
-                <td rowspan="2">ang</td>
-                <td colspan="2">webpr</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '38', 16, 'haladó angol')">nyt</td>
+                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Válócziné Tóth Ildikó', '35', 16, 'haladó angol')">szang</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Borbély Katalin', '6', 'haladó angol')">mat</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Kristó Ágnes', '8', 16, 'haladó angol')">ang</td>
+                <td colspan="2" onclick="oraTulajdonsagok('Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="4"></td>
             </tr>
 
             <tr>
-                <td colspan="2">webpr</td>
+                <td colspan="2" onclick="oraTulajdonsagok('Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
-                <td rowspan="2">nyt</td>
-                <td rowspan="2" colspan="2">aalkf</td>
-                <td rowspan="2" colspan="2">adatbkl</td>
-                <td>webpr</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '5', 16, kezdő angol)">ang</td>
+                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Tüskéné Dombi Zsusanna', '24', 16, 'kezdő angol')">aalkf</td>
+                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Horváth Zoltán', '23', 16, 'kezdő angol')">adatbkl</td>
+                <td onclick="oraTulajdonsagok('Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td>webpr</td>
+                <td onclick="oraTulajdonsagok('Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2"><strong>Szerda</strong></td>
+                <td rowspan="2"><strong>Szerda</strong></td>
                 <td rowspan="2"></td>
-                <td rowspan="2">fiz</td>
-                <td rowspan="2">hit</td>
-                <td>ang</td>
-                <td rowspan="2">tört</td>
-                <td rowspan="2">iro</td>
-                <td colspan="2">aalkf</td>
-                <td rowspan="2">test</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Marczin Attila', '11', 32, 'egész osztály'")>fiz</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Lukács Edina', '11', 32, 'egész osztály'")>hit</td>
+                <td onclick="oraTulajdonsagok('Kristó Ágnes', '5', 16, 'haladó angol'")>ang</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Pádár Miklós', '1', 32, 'egész osztály'")>tört</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály'")>iro</td>
+                <td colspan="2" onclick="oraTulajdonsagok('Tüskéné Dombi Zsuzsanna', '25', 16, 'haladó angol'")>aalkf</td>
+                <td rowspan="2" onclick="oraTulajdonsagok('Soltész Gábor', 'Tornaterem', 32, 'egész osztály'")>test</td>
             </tr>
 
             <tr>
-                <td>ang</td>
-                <td>nyt</td>
-                <td>mat</td>
+                <td onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '37', 16, 'kezdő csoport'")>ang</td>
+                <td onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 16, 'kezdő angol'")>nyt</td>
+                <td onclick="oraTulajdonsagok('Kovács Zsuzsanna', '7', 16, 'kezdő angol'")>mat</td>
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2"><strong>Csütörtök</strong></td>
+                <td rowspan="2"><strong>Csütörtök</strong></td>
                 <td rowspan="2"></td>
                 <td colspan="2">webpr</td>
                 <td rowspan="2">iro</td>
@@ -109,7 +109,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2"><strong>Péntek</strong></td>
+                <td rowspan="2"><strong>Péntek</strong></td>
                 <td rowspan="2">hit</td>
                 <td>mat</td>
                 <td rowspan="2">tört</td>
@@ -137,4 +137,9 @@ function adatokTorlese()
     `<div class="keret_fo">
         <p>Nincs sürgős teendő!</p>
     </div>`
+}
+
+function oraTulajdonsagok()
+{
+    szuloTartalom.innerHTML = ''
 }

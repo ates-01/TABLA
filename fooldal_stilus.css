@@ -102,6 +102,10 @@ td {
     border: 2px solid #1D0E0C;
 }
 
+td:hover {
+    cursor: default;
+}
+
 b {
     color: #D92243;
 }
@@ -119,6 +123,14 @@ b {
     width: 62.5px;
     height: 62.5px;
     margin: 0 1rem;
+    padding: 0 5px;
+    transition: .125s;
+}
+
+.logreg:hover {
+    scale: 0.9;
+    transition: .125s;
+    cursor: default;
 }
 
 .cimek {
@@ -128,6 +140,10 @@ b {
 
 #logo {
     width: 250px;
+}
+
+#bejelentkezes {
+    background-image: url(./kepek/bejelentkezes.png);
 }
 
 .qm:hover, #logo:hover {
