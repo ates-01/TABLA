@@ -6,8 +6,7 @@
 body {
     color: #1D0E0C;
     background-color: #FFF5E5;
-    font-family: 'Calibri';
-    text-shadow: 1px 0 1px #1D0E0C;
+    font-family: sans-serif;
 }
 
 header, nav, main, footer {
@@ -60,7 +59,6 @@ h1 {
 p {
     font-size: 24px;
     text-align: center;
-    text-shadow: 1px 0 1px #1D0E0C;
     letter-spacing: 1px;
 }
 
@@ -71,7 +69,6 @@ button {
     background-color: #E0C375;
     font-size: 24px;
     font-family: 'Calibri';
-    text-shadow: 1px 0 1px #1D0E0C;
     border: none;
     transition: .125s;
 }
@@ -84,21 +81,29 @@ button:hover {
 button:disabled {
     color: white;
     background-color: darkgrey;
-    text-shadow: 1px 0 1px white;
     cursor: not-allowed;
 }
 
 table {
     margin: auto;
+    font-size: 20px;
     text-align: center;
+    border: 2px solid #1D0E0C;
+    border-spacing: 0;
 }
 
-th, tr {
-    border: 3px solid #1D0E0C;
+tr {
+    border: 2px solid #1D0E0C;
 }
 
 td {
-    border: 3px solid #1D0E0C;
+    width: 110px;
+    padding: 2.5px 5px;
+    border: 2px solid #1D0E0C;
+}
+
+b {
+    color: #D92243;
 }
 
 .keret_navigacio {
@@ -111,14 +116,20 @@ td {
 }
 
 .logreg {
+    width: 62.5px;
     height: 62.5px;
     margin: 0 1rem;
+}
+
+.cimek {
+    margin: 2.5rem 0;
+    text-decoration: underline #D92243;
 }
 
 #logo {
     width: 250px;
 }
 
-#cim {
-    margin: 0 0 1rem 0;
+.qm:hover, #logo:hover {
+    cursor: help;
 }

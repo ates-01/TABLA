@@ -13,24 +13,24 @@ function orarendLetrehozas()
 
     szuloTartalom.innerHTML =
     `<div class="keret_fo">
-        <h1 id="cim">11.B <sup>(2025-2026)</sup></h1>
+        <h1 class="cimek">11.B</h1>
 
         <table>
             <tr>
-                <th></th>
-                <th>0<br>7:15-7:55</th>
-                <th>1<br>8:00-8:45</th>
-                <th>2<br>8:55-9:40</th>
-                <th>3<br>9:50-10:35</th>
-                <th>4<br>10:45-11:30</th>
-                <th>5<br>11:45-12:30</th>
-                <th>6<br>12:50-13:35</th>
-                <th>7<br>13:40-14:20</th>
-                <th>8<br>14:25-15:05</th>
+                <td></td>
+                <td><b>0</b><br>7:15-7:55</td>
+                <td><b>1</b><br>8:00-8:45</td>
+                <td><b>2</b><br>8:55-9:40</td>
+                <td><b>3</b><br>9:50-10:35</td>
+                <td><b>4</b><br>10:45-11:30</td>
+                <td><b>5</b><br>11:45-12:30</td>
+                <td><b>6</b><br>12:50-13:35</td>
+                <td><b>7</b><br>13:40-14:20</td>
+                <td><b>8</b><br>14:25-15:05</td>
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2">Hétfő</td>
+                <td class="elso_oszlop" rowspan="2"><strong>Hétfő</strong></td>
                 <td rowspan="2"></td>
                 <td rowspan="2">köznev</td>
                 <td>mat</td>
@@ -48,7 +48,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="4">Kedd</td>
+                <td class="elso_oszlop" rowspan="4"><strong>Kedd</strong></td>
                 <td rowspan="4"></td>
                 <td rowspan="2">nyt</td>
                 <td rowspan="2" colspan="2">szang</td>
@@ -75,7 +75,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2">Szerda</td>
+                <td class="elso_oszlop" rowspan="2"><strong>Szerda</strong></td>
                 <td rowspan="2"></td>
                 <td rowspan="2">fiz</td>
                 <td rowspan="2">hit</td>
@@ -93,7 +93,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2">Csütörtök</td>
+                <td class="elso_oszlop" rowspan="2"><strong>Csütörtök</strong></td>
                 <td rowspan="2"></td>
                 <td colspan="2">webpr</td>
                 <td rowspan="2">iro</td>
@@ -109,7 +109,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="elso_oszlop" rowspan="2">Péntek</td>
+                <td class="elso_oszlop" rowspan="2"><strong>Péntek</strong></td>
                 <td rowspan="2">hit</td>
                 <td>mat</td>
                 <td rowspan="2">tört</td>
@@ -126,6 +126,8 @@ function orarendLetrehozas()
                 <td>ang</td>
             </tr>
         </table>
+
+        <h1 class="cimek">2025-2026</h1>
     </div>`
 }
 
