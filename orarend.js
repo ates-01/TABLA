@@ -32,89 +32,89 @@ function orarendLetrehozas()
             <tr>
                 <td rowspan="2"><strong>Hétfő</strong></td>
                 <td rowspan="2"></td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály')">köznev</td>
-                <td onclick="oraTulajdonsagok('Borbély Katalin', '6', 16, 'haladó angol')">mat</td>
-                <td onclick="oraTulajdonsagok('Kristó Ágnes', '21', 16, 'haladó angol')">ang</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Soltész Gábor', 'Tornaterem', 32, 'egész osztály')">test</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Pádár Miklós', '1', 32, 'egész osztály')">tört</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Marczin Attila', '9', 32, 'egész osztály')">fiz</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Osztályfőnöki', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">köznev</td>
+                <td class="attr" onclick="oraTulajdonsagok('Matematika', 'Borbély Katalin', '6', 16, 'haladó angol')">mat</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '21', 16, 'haladó angol')">ang</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Testnevelés', 'Soltész Gábor', 'Tornaterem', 32, 'egész osztály')">test</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Irodalom', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Történelem', 'Pádár Miklós', '1', 32, 'egész osztály')">tört</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Fizika', 'Marczin Attila', '9', 32, 'egész osztály')">fiz</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td onclick="oraTulajdonsagok('Kovács Zsuzsanna', '7', 16, 'kezdő angol')">mat</td>
-                <td onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '17', 16, 'kezdő angol')">ang</td>
+                <td class="attr" onclick="oraTulajdonsagok('Matematika', 'Kovács Zsuzsanna', '7', 16, 'kezdő angol')">mat</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '17', 16, 'kezdő angol')">ang</td>
             </tr>
 
             <tr>
                 <td rowspan="4"><strong>Kedd</strong></td>
                 <td rowspan="4"></td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '38', 16, 'haladó angol')">nyt</td>
-                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Válócziné Tóth Ildikó', '35', 16, 'haladó angol')">szang</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Borbély Katalin', '6', 'haladó angol')">mat</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Kristó Ágnes', '8', 16, 'haladó angol')">ang</td>
-                <td colspan="2" onclick="oraTulajdonsagok('Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Nyelvtan', 'Blahó-Kiss Katalin', '38', 16, 'haladó angol')">nyt</td>
+                <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Válócziné Tóth Ildikó', '35', 16, 'haladó angol')">szang</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Matematika', 'Borbély Katalin', '6', 'haladó angol')">mat</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '8', 16, 'haladó angol')">ang</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="4"></td>
             </tr>
 
             <tr>
-                <td colspan="2" onclick="oraTulajdonsagok('Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
-                <td rowspan="2" onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '5', 16, kezdő angol)">ang</td>
-                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Tüskéné Dombi Zsusanna', '24', 16, 'kezdő angol')">aalkf</td>
-                <td rowspan="2" colspan="2" onclick="oraTulajdonsagok('Horváth Zoltán', '23', 16, 'kezdő angol')">adatbkl</td>
-                <td onclick="oraTulajdonsagok('Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '5', 16, 'kezdő angol')">ang</td>
+                <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsusanna', '24', 16, 'kezdő angol')">aalkf</td>
+                <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '23', 16, 'kezdő angol')">adatbkl</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td onclick="oraTulajdonsagok('Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
                 <td rowspan="2"><strong>Szerda</strong></td>
                 <td rowspan="2"></td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Marczin Attila', '11', 32, 'egész osztály'")>fiz</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Lukács Edina', '11', 32, 'egész osztály'")>hit</td>
-                <td onclick="oraTulajdonsagok('Kristó Ágnes', '5', 16, 'haladó angol'")>ang</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Pádár Miklós', '1', 32, 'egész osztály'")>tört</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 32, 'egész osztály'")>iro</td>
-                <td colspan="2" onclick="oraTulajdonsagok('Tüskéné Dombi Zsuzsanna', '25', 16, 'haladó angol'")>aalkf</td>
-                <td rowspan="2" onclick="oraTulajdonsagok('Soltész Gábor', 'Tornaterem', 32, 'egész osztály'")>test</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Fizika', 'Marczin Attila', '11', 32, 'egész osztály')">fiz</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Hittan', 'Lukács Edina', '11', 32, 'egész osztály')">hit</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '5', 16, 'haladó angol')">ang</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Történelem', 'Pádár Miklós', '1', 32, 'egész osztály')">tört</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Irodalom', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '25', 16, 'haladó angol')">aalkf</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Testnevelés', 'Soltész Gábor', 'Tornaterem', 32, 'egész osztály')">test</td>
             </tr>
 
             <tr>
-                <td onclick="oraTulajdonsagok('Bodócsné Dér Krisztina', '37', 16, 'kezdő csoport'")>ang</td>
-                <td onclick="oraTulajdonsagok('Blahó-Kiss Katalin', '18', 16, 'kezdő angol'")>nyt</td>
-                <td onclick="oraTulajdonsagok('Kovács Zsuzsanna', '7', 16, 'kezdő angol'")>mat</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '37', 16, 'kezdő csoport')">ang</td>
+                <td class="attr" onclick="oraTulajdonsagok('Nyelvtan', 'Blahó-Kiss Katalin', '18', 16, 'kezdő angol')">nyt</td>
+                <td class="attr" onclick="oraTulajdonsagok('Matematika', 'Kovács Zsuzsanna', '7', 16, 'kezdő angol')">mat</td>
             </tr>
 
             <tr>
                 <td rowspan="2"><strong>Csütörtök</strong></td>
                 <td rowspan="2"></td>
-                <td colspan="2">webpr</td>
-                <td rowspan="2">iro</td>
-                <td colspan="2">adatbkl</td>
-                <td colspan="2">aalkf</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Irodalom', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '25', 16, 'haladó angol')">adatbkl</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'haladó angol')">aalkf</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td colspan="2">webpr</td>
-                <td colspan="2">aalkf</td>
-                <td colspan="2">szang</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '22', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'kezdő angol')">aalkf</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Tátrai Krisztina', '35', 16, 'kezdő angol')">szang</td>
             </tr>
 
             <tr>
                 <td rowspan="2"><strong>Péntek</strong></td>
-                <td rowspan="2">hit</td>
-                <td>mat</td>
-                <td rowspan="2">tört</td>
-                <td>ang</td>
-                <td rowspan="2">test</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Hittan', 'Lukács Edina', '3', 32, 'egész osztály')">hit</td>
+                <td class="attr" onclick="oraTulajdonsagok('Matematika', 'Borbély Katalin', '6', 16, 'haladó angol')">mat</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Történelem', 'Pádár Miklós', '1', 32, 'egész osztály')">tört</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '28', 16, 'haladó angol')">ang</td>
+                <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Testnevelés', 'Soltész Gábor', 'Tornaterem', 32, 'egész osztály')">test</td>
                 <td rowspan="2"></td>
                 <td rowspan="2"></td>
                 <td rowspan="2"></td>
@@ -122,8 +122,8 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td>mat</td>
-                <td>ang</td>
+                <td class="attr" onclick="oraTulajdonsagok('Matematika', 'Kovács Zsuzsanna', '7', 16, 'kezdő angol')">mat</td>
+                <td class="attr" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '5', 16, 'kezdő angol')">ang</td>
             </tr>
         </table>
 
@@ -139,7 +139,28 @@ function adatokTorlese()
     </div>`
 }
 
-function oraTulajdonsagok()
+function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
 {
+    let oraMegnevezes = ora
+    let tanarMegnevezes = tanar
+    let teremMegnevezes = terem
+    let letszamMegnevezes = letszam
+    let csoportMegnevezes = csoport
+
     szuloTartalom.innerHTML = ''
+
+    szuloTartalom.innerHTML =
+    `<div class="keret_tulajdonsagok">
+        <img src="./kepek/bezaras.png" alt="Bezárás" title="A nézet bezárásához kattintson ide!" id="bezaras" onclick="orarendLetrehozas()">
+
+        <h1 class="cimek">${oraMegnevezes}</h1>
+        <hr>
+        <h2><b>Tanár</b>:\t${tanarMegnevezes}</h2>
+        <hr>
+        <h2><b>Terem</b>:\t${teremMegnevezes}</h2>
+        <hr>
+        <h2><b>Létszám</b>:\t${letszamMegnevezes}</h2>
+        <hr>
+        <h2><b>Csoport</b>:\t${csoportMegnevezes}</h2>
+    </div>`
 }

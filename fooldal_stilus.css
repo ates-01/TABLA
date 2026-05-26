@@ -15,7 +15,7 @@ header, nav, main, footer {
     height: auto;
 }
 
-.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, #cim {
+.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, .keret_tulajdonsagok, #cim {
     height: auto;
     margin: auto;
 }
@@ -54,6 +54,13 @@ h1 {
     font-style: normal;
     text-align: center;
     letter-spacing: 3px;
+}
+
+h2 {
+    font-size: 32px;
+    font-style: normal;
+    letter-spacing: 3px;
+    margin: 2.5rem 0;
 }
 
 p {
@@ -110,9 +117,20 @@ b {
     color: #D92243;
 }
 
+hr {
+    border: 2.5px solid #1D0E0C;
+    background-color: #1D0E0C;
+}
+
 .keret_navigacio {
     border-left: 5px solid #1D0E0C;
     border-right: 5px solid #1D0E0C;
+}
+
+.keret_tulajdonsagok {
+    width: 575px;
+    padding: 0 1rem;
+    border: 5px solid #1D0E0C;
 }
 
 .keret_lablec {
@@ -120,8 +138,8 @@ b {
 }
 
 .logreg {
-    width: 62.5px;
-    height: 62.5px;
+    width: 62px;
+    height: 62px;
     margin: 0 1rem;
     padding: 0 5px;
     transition: .125s;
@@ -138,12 +156,30 @@ b {
     text-decoration: underline #D92243;
 }
 
+.attr {
+    transition: .125s;
+}
+
+.attr:hover {
+    background-color: #EEE4D4;
+    transition: .125s;
+}
+
 #logo {
     width: 250px;
 }
 
-#bejelentkezes {
-    background-image: url(./kepek/bejelentkezes.png);
+#bezaras {
+    width: 50px;
+    height: 50px;
+    margin: 1rem 0 0 0;
+    float: right;
+    transition: .125s;
+}
+
+#bezaras:hover {
+    scale: 0.9;
+    transition: .125s;
 }
 
 .qm:hover, #logo:hover {
