@@ -15,7 +15,7 @@ header, nav, main, footer {
     height: auto;
 }
 
-.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, .keret_tulajdonsagok, #cim {
+.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, .keret_tulajdonsagok, .marquee_keret, #cim {
     height: auto;
     margin: auto;
 }
@@ -63,7 +63,7 @@ h2 {
     margin: 2.5rem 0;
 }
 
-p {
+p, .marquee_keret {
     font-size: 24px;
     text-align: center;
     letter-spacing: 1px;
@@ -165,6 +165,23 @@ hr {
     transition: .125s;
 }
 
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee_keret {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 5s linear infinite;
+}
+
+.marquee_szoveg {
+    float: left;
+    width: 50%;
+}
+
 #logo {
     width: 250px;
 }
@@ -184,4 +201,14 @@ hr {
 
 .qm:hover, #logo:hover {
     cursor: help;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
 }
