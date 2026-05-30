@@ -15,7 +15,7 @@ header, nav, main, footer {
     height: auto;
 }
 
-.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, .keret_tulajdonsagok, .marquee_keret, #cim {
+.keret_fejlec, .keret_fo, .keret_navigacio, .keret_lablec, .keret_tulajdonsagok, .keret_regisztracio, #cim, marquee {
     height: auto;
     margin: auto;
 }
@@ -49,7 +49,7 @@ footer {
     border-top: 2.5px solid #1D0E0C;
 }
 
-h1 {
+h1, marquee {
     font-size: 40px;
     font-style: normal;
     text-align: center;
@@ -63,7 +63,7 @@ h2 {
     margin: 2.5rem 0;
 }
 
-p, .marquee_keret {
+p, label {
     font-size: 24px;
     text-align: center;
     letter-spacing: 1px;
@@ -122,9 +122,29 @@ hr {
     background-color: #1D0E0C;
 }
 
+input, select, option {
+    width: 300px;
+    height: 30px;
+    background-color: #FFF5E5;
+    font-family: sans-serif;
+    font-size: 24px;
+    text-align: center;
+    border: 2.5px solid #1D0E0C;
+    transition: .125s;
+}
+
+input:hover, select:hover {
+    background-color: #EEE4D4;
+    transition: .125s;
+}
+
 .keret_navigacio {
     border-left: 5px solid #1D0E0C;
     border-right: 5px solid #1D0E0C;
+}
+
+.keret_lablec {
+    font-style: italic;
 }
 
 .keret_tulajdonsagok {
@@ -133,8 +153,10 @@ hr {
     border: 5px solid #1D0E0C;
 }
 
-.keret_lablec {
-    font-style: italic;
+.keret_regisztracio {
+    padding: 1rem;
+    background-color: #EEE4D4;
+    border: 5px solid #1D0E0C;
 }
 
 .logreg {
@@ -165,23 +187,6 @@ hr {
     transition: .125s;
 }
 
-.marquee {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.marquee_keret {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: marquee 5s linear infinite;
-}
-
-.marquee_szoveg {
-    float: left;
-    width: 50%;
-}
-
 #logo {
     width: 250px;
 }
@@ -201,14 +206,4 @@ hr {
 
 .qm:hover, #logo:hover {
     cursor: help;
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
 }

@@ -1,17 +1,15 @@
-let szuloTartalom = document.getElementById('parent')
+let fo = document.getElementById('fo')
 
-szuloTartalom.innerHTML =
+fo.innerHTML =
 `<div class="keret_fo">
     <p>Nincs sürgős teendő!</p>
 </div>`
 
-let gyermekTartalom = document.getElementsByClassName('keret_fo')
-
 function orarendLetrehozas()
 {
-    szuloTartalom.innerHTML = ''
+    fo.innerHTML = ''
 
-    szuloTartalom.innerHTML =
+    fo.innerHTML =
     `<div class="keret_fo">
         <h1 class="cimek">11.B</h1>
 
@@ -133,7 +131,7 @@ function orarendLetrehozas()
 
 function adatokTorlese()
 {
-    szuloTartalom.innerHTML =
+    fo.innerHTML =
     `<div class="keret_fo">
         <p>Nincs sürgős teendő!</p>
     </div>`
@@ -147,9 +145,9 @@ function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
     let letszamMegnevezes = letszam
     let csoportMegnevezes = csoport
 
-    szuloTartalom.innerHTML = ''
+    fo.innerHTML = ''
 
-    szuloTartalom.innerHTML =
+    fo.innerHTML =
     `<div class="keret_tulajdonsagok">
         <img src="./kepek/bezaras.png" alt="Bezárás" title="A nézet bezárásához kattintson ide!" id="bezaras" onclick="orarendLetrehozas()">
 
