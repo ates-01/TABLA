@@ -1,14 +1,186 @@
+//#region Regisztrációs felület létrehozása, működtetése
+
+let oldalcim = document.getElementById('oldalcim')
+let logocim = document.getElementById('logo')
+let focim = document.getElementById('focim')
+let navigacio = document.getElementById('navigacio')
 let fo = document.getElementById('fo')
 
-fo.innerHTML =
-`<div class="keret_fo">
-    <p>Nincs sürgős teendő!</p>
-</div>`
+function feluletGeneralas()
+{
+    oldalcim.textContent = 'TÁBLA - Regisztrációs felület'
+
+    logocim.title = 'TÁBLA - Regisztrációs felület'
+
+    focim.textContent = 'TÁBLA - Regisztrációs felület'
+
+    focim.title = 'Tanár vagy diák regisztrálása az oldalra.'
+
+    navigacio.innerHTML =
+    `<marquee scrolldelay="60">Üdvözöljük a regisztrációs felületen! Válassza ki, hogy tanári vagy diák fiókot szeretne-e regisztrálni! Tanárként lehetősége nyílik a diákok jegyeinek módosítására, diákként megtekintheti eddigi osztályzatait. Ha nem szeretne regisztrálni folytathatja fiók nélkül is limitált lehetőségekkel.</marquee>`
+
+    fo.innerHTML =
+    `<div class="keret_regisztracio">
+        <h1 class="cimek">Tanári fiók felvétele</h1>
+
+        <label for="nev" id="tanar_nev_pipa">Név</label>
+        <br>
+        <input type="text" id="tanar_nev">
+        <br>
+        <br>
+
+        <label for="email" id="tanar_email_pipa">E-mail</label>
+        <br>
+        <input type="text" id="tanar_email">
+        <br>
+        <br>
+
+        <label for="jelszo_egy" id="tanar_jelszo_egy_pipa">Jelszó</label>
+        <br>
+        <input type="password" id="tanar_jelszo_egy">
+        <br>
+        <br>
+
+        <label for="jelszo_ketto" id="tanar_jelszo_ketto_pipa">Jelszó megerősítése</label>
+        <br>
+        <input type="password" id="tanar_jelszo_ketto">
+        <br>
+        <br>
+
+        <label for="szak">Szak kiválasztása</label>
+        <br>
+        <select>
+            <option value="irodalom-nyelvtan">irodalom-nyelvtan</option>
+            <option value="matematika">matematika</option>
+            <option value="angol">angol</option>
+            <option value="testnevelés">testnevelés</option>
+            <option value="történelem">történelem</option>
+            <option value="fizika">fizika</option>
+            <option value="programozó">programozó</option>
+            <option value="hittan">hittan</option>
+        </select>
+        <br>
+        <br>
+
+        <button class="regisztracios_gomb" id="tanar_gomb" onclick="kiertekelesTanar()" disabled>Fiók regisztrálása</button>
+        <button class="nincs_regisztracio" onclick="kiTanariFelulet()">Nem regisztrálok</button>
+    </div>
+    
+    <div class="keret_regisztracio">
+        <h1 class="cimek">Diák fiók felvétele</h1>
+
+        <label for="nev">Név</label>
+        <br>
+        <input type="text" id="diak_nev">
+        <br>
+        <br>
+
+        <label for="email">E-mail</label>
+        <br>
+        <input type="text" id="diak_email">
+        <br>
+        <br>
+
+        <label for="jelszo_egy">Jelszó</label>
+        <br>
+        <input type="password" id="diak_jelszo_egy">
+        <br>
+        <br>
+
+        <label for="jelszo_ketto">Jelszó megerősítése</label>
+        <br>
+        <input type="password" id="diak_jelszo_ketto">
+        <br>
+        <br>
+
+        <label for="szak">OM-azonosító</label>
+        <br>
+        <input type="text" id="om_azonosito">
+        <br>
+        <br>
+
+        <button class="regisztracios_gomb" id="diak_gomb" onclick="kiertekelesDiak()" disabled>Fiók regisztrálása</button>
+        <button class="nincs_regisztracio" onclick="kiDiakFelulet()">Nem regisztrálok</button>
+    </div>`
+}
+
+let tanarNev = ''
+let tanarJelszo = ''
+
+let diakNev = ''
+let diakJelszo = ''
+
+const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
+
+const pipa_tanar_nev = document.createElement('img')
+const pipa_tanar_email = document.createElement('img')
+const pipa_tanar_jelszo_egy = document.createElement('img')
+const pipa_tanar_jelszo_ketto = document.createElement('img')
+
+pipa_tanar_jelszo_ketto.src = './kepek/pipa.png'
+pipa_tanar_jelszo_ketto.classList.add('pipa')
+
+document.addEventListener('keyup', adatokHitelesitese)
+
+function adatokHitelesitese()
+{
+    let nev = document.getElementById('tanar_nev').value
+    let email = document.getElementById('tanar_email').value
+    let jelszoEgy = document.getElementById('tanar_jelszo_egy').value
+    let jelszoKetto = document.getElementById('tanar_jelszo_ketto').value
+    let regisztraciosGomb = document.getElementById('tanar_gomb')
+    
+    let talaltSpecialisKarakter = false
+
+    specialisKarakterek.forEach(elem => {
+        if (elem === jelszoEgy[elem])
+            {
+                talaltSpecialisKarakter = true
+            }
+    });
+
+    let helyesNev = /[A-Z]/.test(nev)
+    let helyesEmail = email.includes('@') && email.includes('.')
+    let helyesJelszoEgy = !talaltSpecialisKarakter && /[A-Z]/.test(jelszoEgy) && /[0-9]/.test(jelszoEgy)
+
+    if (helyesNev)
+        {
+            pipa_tanar_nev.src = './kepek/pipa.png'
+            pipa_tanar_nev.classList.add('pipa')
+
+            document.getElementById('tanar_nev_pipa').appendChild(pipa_tanar_nev)
+        } else
+            {
+                document.getElementById('tanar_nev_pipa').removeChild(pipa_tanar_nev)
+            }
+    if (helyesEmail)
+        {
+            pipa_tanar_email.src = './kepek/pipa.png'
+            pipa_tanar_email.classList.add('pipa')
+
+            document.getElementById('tanar_email_pipa').appendChild(pipa_tanar_email)
+        } else
+            {
+                document.getElementById('tanar_email_pipa').removeChild(pipa_tanar_email)
+            }
+    if (helyesJelszoEgy)
+        {
+            pipa_tanar_jelszo_egy.src = './kepek/pipa.png'
+            pipa_tanar_jelszo_egy.classList.add('pipa')
+
+            document.getElementById('tanar_jelszo_egy_pipa').appendChild(pipa_tanar_jelszo_egy)
+        } else
+            {
+                document.getElementById('tanar_jelszo_egy_pipa').removeChild(pipa_tanar_jelszo_egy)
+            }
+}
+
+//#endregion
+
+//#region Órarend létrehozása, kezelése
 
 function orarendLetrehozas()
 {
-    fo.innerHTML = ''
-
     fo.innerHTML =
     `<div class="keret_fo">
         <h1 class="cimek">11.B</h1>
@@ -129,6 +301,10 @@ function orarendLetrehozas()
     </div>`
 }
 
+//#endregion
+
+//#region Adatok törlése a main-ből
+
 function adatokTorlese()
 {
     fo.innerHTML =
@@ -137,6 +313,10 @@ function adatokTorlese()
     </div>`
 }
 
+//#endregion
+
+//#region A tanóra tulajdonságainak megjelenítése
+
 function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
 {
     let oraMegnevezes = ora
@@ -144,8 +324,6 @@ function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
     let teremMegnevezes = terem
     let letszamMegnevezes = letszam
     let csoportMegnevezes = csoport
-
-    fo.innerHTML = ''
 
     fo.innerHTML =
     `<div class="keret_tulajdonsagok">
@@ -162,3 +340,48 @@ function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
         <h2><b>Csoport</b>:\t${csoportMegnevezes}</h2>
     </div>`
 }
+
+//#endregion
+
+//#region A bejelentkezés nélküli oldal legenerálása
+
+function kiTanariFelulet()
+{
+    oldalcim.textContent = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
+
+    logocim.title = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
+
+    focim.textContent = 'TÁBLA - Nincs bejelentkezve!'
+
+    focim.title = 'A tanulók, illetve az osztályzatok kezeléséhez jelentkezzen be vagy regisztráljon fiókot!'
+
+    navigacio.innerHTML =
+    `<div class="keret_navigacio">
+        <button disabled>Tanuló kiválasztása</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button onclick="orarendLetrehozas()">Órarend</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button disabled>Osztályzatok lekérdezése</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button onclick="adatokTorlese()">Adatok törlése</button>
+    </div>
+        
+    <div class="keret_navigacio">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg">
+
+        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg">
+    </div>`
+
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <p>Nincs sürgős teendő!</p>
+    </div>`
+}
+
+//#endregion
