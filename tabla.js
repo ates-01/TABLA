@@ -1,10 +1,36 @@
-//#region Regisztrációs felület létrehozása, működtetése
+//#region Deklarálás és inicializálás
 
 let oldalcim = document.getElementById('oldalcim')
 let logocim = document.getElementById('logo')
 let focim = document.getElementById('focim')
 let navigacio = document.getElementById('navigacio')
 let fo = document.getElementById('fo')
+
+let tanarNev = ''
+let tanarJelszo = ''
+
+let diakNev = ''
+let diakJelszo = ''
+
+const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
+
+const pipa_tanar_nev = document.createElement('img')
+const pipa_tanar_email = document.createElement('img')
+const pipa_tanar_jelszo_egy = document.createElement('img')
+const pipa_tanar_jelszo_ketto = document.createElement('img')
+
+const pipa_diak_nev = document.createElement('img')
+const pipa_diak_email = document.createElement('img')
+const pipa_diak_jelszo_egy = document.createElement('img')
+const pipa_diak_jelszo_ketto = document.createElement('img')
+const pipa_om_azonosito = document.createElement('img')
+
+document.addEventListener('keyup', tanariAdatokHitelesitese)
+document.addEventListener('keyup', diakAdatokHitelesitese)
+
+//#endregion
+
+//#region Regisztrációs felület létrehozása, működtetése
 
 function feluletGeneralas()
 {
@@ -69,31 +95,31 @@ function feluletGeneralas()
     <div class="keret_regisztracio">
         <h1 class="cimek">Diák fiók felvétele</h1>
 
-        <label for="nev">Név</label>
+        <label for="nev" id="diak_nev_pipa">Név</label>
         <br>
         <input type="text" id="diak_nev">
         <br>
         <br>
 
-        <label for="email">E-mail</label>
+        <label for="email" id="diak_email_pipa">E-mail</label>
         <br>
         <input type="text" id="diak_email">
         <br>
         <br>
 
-        <label for="jelszo_egy">Jelszó</label>
+        <label for="jelszo_egy" id="diak_jelszo_egy_pipa">Jelszó</label>
         <br>
         <input type="password" id="diak_jelszo_egy">
         <br>
         <br>
 
-        <label for="jelszo_ketto">Jelszó megerősítése</label>
+        <label for="jelszo_ketto" id="diak_jelszo_ketto_pipa">Jelszó megerősítése</label>
         <br>
         <input type="password" id="diak_jelszo_ketto">
         <br>
         <br>
 
-        <label for="szak">OM-azonosító</label>
+        <label for="szak" id="om_azonosito_pipa">OM-azonosító</label>
         <br>
         <input type="text" id="om_azonosito">
         <br>
@@ -103,45 +129,48 @@ function feluletGeneralas()
         <button class="nincs_regisztracio" onclick="kiDiakFelulet()">Nem regisztrálok</button>
     </div>`
 }
+//#region Speciális karakter keresése a jelszóban
 
-let tanarNev = ''
-let tanarJelszo = ''
-
-let diakNev = ''
-let diakJelszo = ''
-
-const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
-
-const pipa_tanar_nev = document.createElement('img')
-const pipa_tanar_email = document.createElement('img')
-const pipa_tanar_jelszo_egy = document.createElement('img')
-const pipa_tanar_jelszo_ketto = document.createElement('img')
-
-pipa_tanar_jelszo_ketto.src = './kepek/pipa.png'
-pipa_tanar_jelszo_ketto.classList.add('pipa')
-
-document.addEventListener('keyup', adatokHitelesitese)
-
-function adatokHitelesitese()
+function karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek)
 {
+    for (let i = 0; i < jelszoEgy.length; i++)
+        {
+            let indexelo = 0
+
+            while (indexelo < specialisKarakterek.length && specialisKarakterek[indexelo] !== jelszoEgy[i])
+                {
+                    indexelo++
+                }
+
+            if (indexelo < specialisKarakterek.length)
+                {
+                    talaltSpecialisKarakter = true
+                }
+        }
+
+        return talaltSpecialisKarakter
+}
+
+//#endregion
+
+//#region Tanári blokk hitelesítése
+
+function tanariAdatokHitelesitese(tanarNev, tanarJelszo)
+{
+    let talaltSpecialisKarakter = false
+
     let nev = document.getElementById('tanar_nev').value
     let email = document.getElementById('tanar_email').value
     let jelszoEgy = document.getElementById('tanar_jelszo_egy').value
     let jelszoKetto = document.getElementById('tanar_jelszo_ketto').value
     let regisztraciosGomb = document.getElementById('tanar_gomb')
-    
-    let talaltSpecialisKarakter = false
 
-    specialisKarakterek.forEach(elem => {
-        if (elem === jelszoEgy[elem])
-            {
-                talaltSpecialisKarakter = true
-            }
-    });
+    talaltSpecialisKarakter = karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek)
 
     let helyesNev = /[A-Z]/.test(nev)
     let helyesEmail = email.includes('@') && email.includes('.')
-    let helyesJelszoEgy = !talaltSpecialisKarakter && /[A-Z]/.test(jelszoEgy) && /[0-9]/.test(jelszoEgy)
+    let helyesJelszoEgy = talaltSpecialisKarakter === true && /[A-Z]/.test(jelszoEgy) && /[0-9]/.test(jelszoEgy) && jelszoEgy.length >= 6
+    let helyesJelszoKetto = jelszoEgy === jelszoKetto
 
     if (helyesNev)
         {
@@ -173,6 +202,121 @@ function adatokHitelesitese()
             {
                 document.getElementById('tanar_jelszo_egy_pipa').removeChild(pipa_tanar_jelszo_egy)
             }
+    if (helyesJelszoKetto)
+        {
+            pipa_tanar_jelszo_ketto.src = './kepek/pipa.png'
+            pipa_tanar_jelszo_ketto.classList.add('pipa')
+
+            document.getElementById('tanar_jelszo_ketto_pipa').appendChild(pipa_tanar_jelszo_ketto)
+        } else
+            {
+                document.getElementById('tanar_jelszo_ketto_pipa').removeChild(pipa_tanar_jelszo_ketto)
+            }
+    if (helyesNev && helyesEmail && helyesJelszoEgy && helyesJelszoKetto)
+        {
+            regisztraciosGomb.disabled = false
+        } else
+            {
+                regisztraciosGomb.disabled = true
+            }
+
+    tanarNev = helyesNev
+    tanarJelszo = jelszoEgy
+
+    return tanarNev
+    return tanarJelszo
+}
+
+//#endregion
+
+//#region Diák blokk hitelesítése
+
+function diakAdatokHitelesitese()
+{
+    let talaltSpecialisKarakter = false
+
+    let nev = document.getElementById('diak_nev').value
+    let email = document.getElementById('diak_email').value
+    let jelszoEgy = document.getElementById('diak_jelszo_egy').value
+    let jelszoKetto = document.getElementById('diak_jelszo_ketto').value
+    let oktatasiAzonosito = document.getElementById('om_azonosito').value
+    let regisztraciosGomb = document.getElementById('diak_gomb')
+
+    talaltSpecialisKarakter = karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek)
+
+    let helyesNev = /[A-Z]/.test(nev)
+    let helyesEmail = email.includes('@') && email.includes('.')
+    let helyesJelszoEgy = talaltSpecialisKarakter === true && /[A-Z]/.test(jelszoEgy) && /[0-9]/.test(jelszoEgy) && jelszoEgy.length >= 6
+    let helyesJelszoKetto = jelszoEgy === jelszoKetto
+    let helyesOktatasiAzonosito = oktatasiAzonosito.length === 11
+
+    if (helyesNev)
+        {
+            pipa_diak_nev.src = './kepek/pipa.png'
+            pipa_diak_nev.classList.add('pipa')
+
+            document.getElementById('diak_nev_pipa').appendChild(pipa_diak_nev)
+        } else
+            {
+                document.getElementById('diak_nev_pipa').removeChild(pipa_diak_nev)
+            }
+    if (helyesEmail)
+        {
+            pipa_diak_email.src = './kepek/pipa.png'
+            pipa_diak_email.classList.add('pipa')
+
+            document.getElementById('diak_email_pipa').appendChild(pipa_diak_email)
+        } else
+            {
+                document.getElementById('diak_email_pipa').removeChild(pipa_diak_email)
+            }
+    if (helyesJelszoEgy)
+        {
+            pipa_diak_jelszo_egy.src = './kepek/pipa.png'
+            pipa_diak_jelszo_egy.classList.add('pipa')
+
+            document.getElementById('diak_jelszo_egy_pipa').appendChild(pipa_diak_jelszo_egy)
+        } else
+            {
+                document.getElementById('diak_jelszo_egy_pipa').removeChild(pipa_diak_jelszo_egy)
+            }
+    if (helyesJelszoKetto)
+        {
+            pipa_diak_jelszo_ketto.src = './kepek/pipa.png'
+            pipa_diak_jelszo_ketto.classList.add('pipa')
+
+            document.getElementById('diak_jelszo_ketto_pipa').appendChild(pipa_diak_jelszo_ketto)
+        } else
+            {
+                document.getElementById('diak_jelszo_ketto_pipa').removeChild(pipa_diak_jelszo_ketto)
+            }
+    if (helyesOktatasiAzonosito)
+        {
+            pipa_om_azonosito.src = './kepek/pipa.png'
+            pipa_om_azonosito.classList.add('pipa')
+
+            document.getElementById('om_azonosito_pipa').appendChild(pipa_om_azonosito)
+        } else
+            {
+                document.getElementById('om_azonosito_pipa').removeChild(pipa_om_azonosito)
+            }
+    if (helyesNev && helyesEmail && helyesJelszoEgy && helyesJelszoKetto && helyesOktatasiAzonosito)
+        {
+            regisztraciosGomb.disabled = false
+        } else
+            {
+                regisztraciosGomb.disabled = true
+            }
+}
+
+//#endregion
+
+function kiertekelesTanar()
+{
+    let nev = tanariAdatokHitelesitese(tanarNev)
+    let jelszo = tanariAdatokHitelesitese(tanarJelszo)
+
+    console.log(nev, jelszo)
 }
 
 //#endregion
@@ -343,7 +487,7 @@ function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
 
 //#endregion
 
-//#region A bejelentkezés nélküli oldal legenerálása
+//#region A bejelentkezés nélküli oldal legenerálása (tanári felület)
 
 function kiTanariFelulet()
 {
@@ -375,7 +519,7 @@ function kiTanariFelulet()
     <div class="keret_navigacio">
         <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg">
 
-        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg">
+        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
 
     fo.innerHTML =
