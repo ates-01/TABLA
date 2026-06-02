@@ -189,19 +189,19 @@ input:hover, select:hover {
     transition: .125s;
 }
 
-.regisztracios_gomb, .nincs_regisztracio {
+.regisztracios_gomb, .bejelentkezesi_gomb, .nincs_regisztracio, .nincs_fiok {
     width: 200px;
     height: 35px;
     margin: 1rem;
     border: 2.5px solid #1D0E0C;
 }
 
-.nincs_regisztracio {
+.nincs_regisztracio, .nincs_fiok {
     color: black;
     background-color: grey;
 }
 
-.nincs_regisztracio:hover {
+.nincs_regisztracio:hover, .nincs_fiok:hover {
     color: white;
     background-color: darkgrey;
 }

@@ -6,12 +6,6 @@ let focim = document.getElementById('focim')
 let navigacio = document.getElementById('navigacio')
 let fo = document.getElementById('fo')
 
-let tanarNev = ''
-let tanarJelszo = ''
-
-let diakNev = ''
-let diakJelszo = ''
-
 const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
 
 const pipa_tanar_nev = document.createElement('img')
@@ -49,25 +43,25 @@ function feluletGeneralas()
     `<div class="keret_regisztracio">
         <h1 class="cimek">Tanári fiók felvétele</h1>
 
-        <label for="nev" id="tanar_nev_pipa">Név</label>
+        <label for="tanar_nev" id="tanar_nev_pipa">Név</label>
         <br>
         <input type="text" id="tanar_nev">
         <br>
         <br>
 
-        <label for="email" id="tanar_email_pipa">E-mail</label>
+        <label for="tanar_email" id="tanar_email_pipa">E-mail</label>
         <br>
         <input type="text" id="tanar_email">
         <br>
         <br>
 
-        <label for="jelszo_egy" id="tanar_jelszo_egy_pipa">Jelszó</label>
+        <label for="tanar_jelszo_egy" id="tanar_jelszo_egy_pipa">Jelszó</label>
         <br>
         <input type="password" id="tanar_jelszo_egy">
         <br>
         <br>
 
-        <label for="jelszo_ketto" id="tanar_jelszo_ketto_pipa">Jelszó megerősítése</label>
+        <label for="tanar_jelszo_ketto" id="tanar_jelszo_ketto_pipa">Jelszó megerősítése</label>
         <br>
         <input type="password" id="tanar_jelszo_ketto">
         <br>
@@ -75,7 +69,7 @@ function feluletGeneralas()
 
         <label for="szak">Szak kiválasztása</label>
         <br>
-        <select>
+        <select id="szak">
             <option value="irodalom-nyelvtan">irodalom-nyelvtan</option>
             <option value="matematika">matematika</option>
             <option value="angol">angol</option>
@@ -88,47 +82,48 @@ function feluletGeneralas()
         <br>
         <br>
 
-        <button class="regisztracios_gomb" id="tanar_gomb" onclick="kiertekelesTanar()" disabled>Fiók regisztrálása</button>
+        <button class="regisztracios_gomb" id="tanar_gomb" onclick="bejelentkezesiFelulet()" disabled>Fiók regisztrálása</button>
         <button class="nincs_regisztracio" onclick="kiTanariFelulet()">Nem regisztrálok</button>
     </div>
     
     <div class="keret_regisztracio">
         <h1 class="cimek">Diák fiók felvétele</h1>
 
-        <label for="nev" id="diak_nev_pipa">Név</label>
+        <label for="diak_nev" id="diak_nev_pipa">Név</label>
         <br>
         <input type="text" id="diak_nev">
         <br>
         <br>
 
-        <label for="email" id="diak_email_pipa">E-mail</label>
+        <label for="diak_email" id="diak_email_pipa">E-mail</label>
         <br>
         <input type="text" id="diak_email">
         <br>
         <br>
 
-        <label for="jelszo_egy" id="diak_jelszo_egy_pipa">Jelszó</label>
+        <label for="diak_jelszo_egy" id="diak_jelszo_egy_pipa">Jelszó</label>
         <br>
         <input type="password" id="diak_jelszo_egy">
         <br>
         <br>
 
-        <label for="jelszo_ketto" id="diak_jelszo_ketto_pipa">Jelszó megerősítése</label>
+        <label for="diak_jelszo_ketto" id="diak_jelszo_ketto_pipa">Jelszó megerősítése</label>
         <br>
         <input type="password" id="diak_jelszo_ketto">
         <br>
         <br>
 
-        <label for="szak" id="om_azonosito_pipa">OM-azonosító</label>
+        <label for="om_azonosito" id="om_azonosito_pipa">OM-azonosító</label>
         <br>
         <input type="text" id="om_azonosito">
         <br>
         <br>
 
-        <button class="regisztracios_gomb" id="diak_gomb" onclick="kiertekelesDiak()" disabled>Fiók regisztrálása</button>
+        <button class="regisztracios_gomb" id="diak_gomb" onclick="bejelentkezesiFelulet()" disabled>Fiók regisztrálása</button>
         <button class="nincs_regisztracio" onclick="kiDiakFelulet()">Nem regisztrálok</button>
     </div>`
 }
+
 //#region Speciális karakter keresése a jelszóban
 
 function karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek)
@@ -155,8 +150,11 @@ function karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek
 
 //#region Tanári blokk hitelesítése
 
-function tanariAdatokHitelesitese(tanarNev, tanarJelszo)
+function tanariAdatokHitelesitese()
 {
+    let tanarNev = ''
+    let tanarJelszo = ''
+
     let talaltSpecialisKarakter = false
 
     let nev = document.getElementById('tanar_nev').value
@@ -222,9 +220,6 @@ function tanariAdatokHitelesitese(tanarNev, tanarJelszo)
 
     tanarNev = helyesNev
     tanarJelszo = jelszoEgy
-
-    return tanarNev
-    return tanarJelszo
 }
 
 //#endregion
@@ -233,6 +228,9 @@ function tanariAdatokHitelesitese(tanarNev, tanarJelszo)
 
 function diakAdatokHitelesitese()
 {
+    let diakNev = ''
+    let diakJelszo = ''
+
     let talaltSpecialisKarakter = false
 
     let nev = document.getElementById('diak_nev').value
@@ -311,12 +309,44 @@ function diakAdatokHitelesitese()
 
 //#endregion
 
-function kiertekelesTanar()
-{
-    let nev = tanariAdatokHitelesitese(tanarNev)
-    let jelszo = tanariAdatokHitelesitese(tanarJelszo)
+//#endregion
 
-    console.log(nev, jelszo)
+//#region Bejelentkezési felület generálása, kezelése
+
+function bejelentkezesiFelulet()
+{
+    fo.innerHTML = ''
+
+    oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
+
+    logocim.title = 'TÁBLA - Bejelentkezési felület'
+
+    focim.textContent = 'TÁBLA - Bejelentkezési felület'
+
+    focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
+
+    navigacio.innerHTML =
+    `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
+
+    fo.innerHTML =
+    `<div class="keret_regisztracio">
+        <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
+
+        <label for="bejelentkezesi_nev">Név</label>
+        <br>
+        <input type="text" id="bejelentkezesi_nev">
+        <br>
+        <br>
+
+        <label for="bejelentkezesi_jelszo">Jelszó</label>
+        <br>
+        <input type="password" id="bejelentkezesi_jelszo">
+        <br>
+        <br>
+
+        <button class="bejelentkezesi_gomb">Bejelentkezés</button>
+        <button class="nincs_fiok" onclick="feluletGeneralas()">Nincs fiókom</button>
+    </div>`
 }
 
 //#endregion
@@ -517,7 +547,7 @@ function kiTanariFelulet()
     </div>
         
     <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFelulet()">
 
         <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
