@@ -8,6 +8,9 @@ let fo = document.getElementById('fo')
 
 const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
 
+let bejelentkezesiAdatokTanar = []
+let bejelentkezesiAdatokDiak = []
+
 const pipa_tanar_nev = document.createElement('img')
 const pipa_tanar_email = document.createElement('img')
 const pipa_tanar_jelszo_egy = document.createElement('img')
@@ -152,15 +155,13 @@ function karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek
 
 function tanariAdatokHitelesitese()
 {
-    let tanarNev = ''
-    let tanarJelszo = ''
-
     let talaltSpecialisKarakter = false
 
     let nev = document.getElementById('tanar_nev').value
     let email = document.getElementById('tanar_email').value
     let jelszoEgy = document.getElementById('tanar_jelszo_egy').value
     let jelszoKetto = document.getElementById('tanar_jelszo_ketto').value
+    let szak = document.getElementById('szak').value
     let regisztraciosGomb = document.getElementById('tanar_gomb')
 
     talaltSpecialisKarakter = karakterKereses(talaltSpecialisKarakter, jelszoEgy, specialisKarakterek)
@@ -217,9 +218,12 @@ function tanariAdatokHitelesitese()
             {
                 regisztraciosGomb.disabled = true
             }
+            
+    bejelentkezesiAdatokTanar[0] = nev
+    bejelentkezesiAdatokTanar[1] = jelszoEgy
+    bejelentkezesiAdatokTanar[2] = szak
 
-    tanarNev = helyesNev
-    tanarJelszo = jelszoEgy
+    console.log(bejelentkezesiAdatokTanar)
 }
 
 //#endregion
@@ -228,9 +232,6 @@ function tanariAdatokHitelesitese()
 
 function diakAdatokHitelesitese()
 {
-    let diakNev = ''
-    let diakJelszo = ''
-
     let talaltSpecialisKarakter = false
 
     let nev = document.getElementById('diak_nev').value
@@ -305,6 +306,11 @@ function diakAdatokHitelesitese()
             {
                 regisztraciosGomb.disabled = true
             }
+
+    bejelentkezesiAdatokDiak[0] = nev
+    bejelentkezesiAdatokDiak[1] = jelszoEgy
+
+    console.log(bejelentkezesiAdatokDiak)
 }
 
 //#endregion
@@ -344,8 +350,158 @@ function bejelentkezesiFelulet()
         <br>
         <br>
 
-        <button class="bejelentkezesi_gomb">Bejelentkezés</button>
+        <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesTanar()">Bejelentkezés</button>
         <button class="nincs_fiok" onclick="feluletGeneralas()">Nincs fiókom</button>
+        <br>
+        <br>
+
+        <p id="jelzes"></p>
+    </div>`
+}
+
+function bejelentkezesEllenorzesTanar()
+{
+    let nev = document.getElementById('bejelentkezesi_nev').value
+    let jelszo = document.getElementById('bejelentkezesi_jelszo').value
+    let visszajelzes = document.getElementById('jelzes')
+    let gomb = document.getElementById('bejelentkezes')
+
+    if (nev === bejelentkezesiAdatokTanar[0] && jelszo === bejelentkezesiAdatokTanar[1])
+        {
+            visszajelzes.textContent = 'Sikeres bejelentkezés!'
+
+            setTimeout(() => {
+                oldalcim.textContent = `TÁBLA - Adminisztrációs felület`
+
+                logocim.title = 'TÁBLA - Adminisztrációs felület'
+
+                focim.textContent = `TÁBLA - ${bejelentkezesiAdatokTanar[0]}`
+
+                focim.title = 'Tanárként lehetősége nyílik a tanulók kiválasztására, osztályzatainak kezelésére, illetve az órarend megtekintésére.'
+
+                navigacio.innerHTML =
+                `<div class="keret_navigacio">
+                    <button>Tanuló kiválasztása</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <button onclick="orarendLetrehozas()">Órarend</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <button>Osztályzatok lekérdezése</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <button onclick="adatokTorlese()">Adatok törlése</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <img src="./kepek/kijelentkezes.png" alt="Kijelentkezés." title="Kijelentkezés a fiókból." class="logreg" onclick="kijelentkezes()">
+                </div>`
+
+                fo.innerHTML =
+                `<div class="keret_fo">
+                    <p>Nincs sürgős teendő!</p>
+                </div>`
+            }, 5000);
+        } else
+            {
+                visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+            }
+}
+
+//#endregion
+
+//#region Adatok törlése a main-ből
+
+function adatokTorlese()
+{
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <p>Nincs sürgős teendő!</p>
+    </div>`
+}
+
+//#endregion
+
+//#region A bejelentkezés nélküli oldal legenerálása (tanári felület)
+
+function kiTanariFelulet()
+{
+    oldalcim.textContent = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
+
+    logocim.title = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
+
+    focim.textContent = 'TÁBLA - Nincs bejelentkezve!'
+
+    focim.title = 'A tanulók, illetve az osztályzatok kezeléséhez jelentkezzen be vagy regisztráljon fiókot!'
+
+    navigacio.innerHTML =
+    `<div class="keret_navigacio">
+        <button disabled>Tanuló kiválasztása</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button onclick="orarendLetrehozas()">Órarend</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button disabled>Osztályzatok lekérdezése</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button onclick="adatokTorlese()">Adatok törlése</button>
+    </div>
+        
+    <div class="keret_navigacio">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesEllenorzesEsGeneralas()">
+
+        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
+    </div>`
+
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <p>Nincs sürgős teendő!</p>
+    </div>`
+}
+
+//#endregion
+
+//#region A bejelentkezés nélküli oldal legenerálása (diák felület)
+
+function kiDiakFelulet()
+{
+    oldalcim.textContent = 'TÁBLA - Tanulói felület (nincs bejelentkezve)'
+
+    logocim.title = 'TÁBLA - Tanulói felület (nincs bejelentkezve)'
+
+    focim.textContent = 'TÁBLA - Nincs bejelentkezve!'
+
+    focim.title = 'A jegyei megtekintéséhez jelentkezzen be vagy regisztráljon fiókot!'
+
+    navigacio.innerHTML =
+    `<div class="keret_navigacio">
+        <button onclick="orarendLetrehozas()">Órarend</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button disabled>Osztályzatok lekérdezése</button>
+    </div>
+
+    <div class="keret_navigacio">
+        <button onclick="adatokTorlese()">Adatok törlése</button>
+    </div>
+        
+    <div class="keret_navigacio">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesEllenorzesDiak()">
+
+        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
+    </div>`
+
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <p>Nincs sürgős teendő!</p>
     </div>`
 }
 
@@ -477,18 +633,6 @@ function orarendLetrehozas()
 
 //#endregion
 
-//#region Adatok törlése a main-ből
-
-function adatokTorlese()
-{
-    fo.innerHTML =
-    `<div class="keret_fo">
-        <p>Nincs sürgős teendő!</p>
-    </div>`
-}
-
-//#endregion
-
 //#region A tanóra tulajdonságainak megjelenítése
 
 function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
@@ -512,49 +656,6 @@ function oraTulajdonsagok(ora, tanar, terem, letszam, csoport)
         <h2><b>Létszám</b>:\t${letszamMegnevezes}</h2>
         <hr>
         <h2><b>Csoport</b>:\t${csoportMegnevezes}</h2>
-    </div>`
-}
-
-//#endregion
-
-//#region A bejelentkezés nélküli oldal legenerálása (tanári felület)
-
-function kiTanariFelulet()
-{
-    oldalcim.textContent = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
-
-    logocim.title = 'TÁBLA - Adminisztrációs felület (nincs bejelentkezve)'
-
-    focim.textContent = 'TÁBLA - Nincs bejelentkezve!'
-
-    focim.title = 'A tanulók, illetve az osztályzatok kezeléséhez jelentkezzen be vagy regisztráljon fiókot!'
-
-    navigacio.innerHTML =
-    `<div class="keret_navigacio">
-        <button disabled>Tanuló kiválasztása</button>
-    </div>
-
-    <div class="keret_navigacio">
-        <button onclick="orarendLetrehozas()">Órarend</button>
-    </div>
-
-    <div class="keret_navigacio">
-        <button disabled>Osztályzatok lekérdezése</button>
-    </div>
-
-    <div class="keret_navigacio">
-        <button onclick="adatokTorlese()">Adatok törlése</button>
-    </div>
-        
-    <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFelulet()">
-
-        <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
-    </div>`
-
-    fo.innerHTML =
-    `<div class="keret_fo">
-        <p>Nincs sürgős teendő!</p>
     </div>`
 }
 
