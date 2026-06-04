@@ -8,8 +8,22 @@ let fo = document.getElementById('fo')
 
 const specialisKarakterek = [',', '.', '-', '?', ':', '_', ';', '>', '*']
 
+const tanulokNeve = ['Berta Ádám', 'Bibók Lili', 'Csépány Levente', 'Geczki Andor László', 'Hordós Milán', 'Kerek Ádám', 'Kulcsár Milán', 'Nágel Attila', 'Ozsvárt Gábor', 'Román Kristóf Gergely', 'Szabó Gergely', 'Szabó Imre Zsolt', 'Szőcs Marcell', 'Tóth Majlát']
+const szakok = ['irodalom-nyelvtan', 'matematika', 'angol', 'testnevelés', 'történelem', 'fizika', 'informatika', 'hittan']
+
 let bejelentkezesiAdatokTanar = []
 let bejelentkezesiAdatokDiak = []
+
+let jegyeim = {
+    "irodalom-nyelvtan": [],
+    "matematika": [],
+    "angol": [],
+    "testnevelés": [],
+    "történelem": [],
+    "fizika": [],
+    "informatika": [],
+    "hittan": [],
+}
 
 const pipa_tanar_nev = document.createElement('img')
 const pipa_tanar_email = document.createElement('img')
@@ -58,6 +72,21 @@ function feluletGeneralas()
         <br>
         <br>
 
+        <label for="szak">Szak kiválasztása</label>
+        <br>
+        <select id="szak">
+            <option value="irodalom-nyelvtan">irodalom-nyelvtan</option>
+            <option value="matematika">matematika</option>
+            <option value="angol">angol</option>
+            <option value="testnevelés">testnevelés</option>
+            <option value="történelem">történelem</option>
+            <option value="fizika">fizika</option>
+            <option value="informatika">informatika</option>
+            <option value="hittan">hittan</option>
+        </select>
+        <br>
+        <br>
+
         <label for="tanar_jelszo_egy" id="tanar_jelszo_egy_pipa">Jelszó</label>
         <br>
         <input type="password" id="tanar_jelszo_egy">
@@ -70,22 +99,7 @@ function feluletGeneralas()
         <br>
         <br>
 
-        <label for="szak">Szak kiválasztása</label>
-        <br>
-        <select id="szak">
-            <option value="irodalom-nyelvtan">irodalom-nyelvtan</option>
-            <option value="matematika">matematika</option>
-            <option value="angol">angol</option>
-            <option value="testnevelés">testnevelés</option>
-            <option value="történelem">történelem</option>
-            <option value="fizika">fizika</option>
-            <option value="programozó">programozó</option>
-            <option value="hittan">hittan</option>
-        </select>
-        <br>
-        <br>
-
-        <button class="regisztracios_gomb" id="tanar_gomb" onclick="bejelentkezesiFelulet()" disabled>Fiók regisztrálása</button>
+        <button class="regisztracios_gomb" id="tanar_gomb" onclick="bejelentkezesiFeluletTanar()" disabled>Fiók regisztrálása</button>
         <button class="nincs_regisztracio" onclick="kiTanariFelulet()">Nem regisztrálok</button>
     </div>
     
@@ -122,7 +136,7 @@ function feluletGeneralas()
         <br>
         <br>
 
-        <button class="regisztracios_gomb" id="diak_gomb" onclick="bejelentkezesiFelulet()" disabled>Fiók regisztrálása</button>
+        <button class="regisztracios_gomb" id="diak_gomb" onclick="bejelentkezesiFeluletDiak()" disabled>Fiók regisztrálása</button>
         <button class="nincs_regisztracio" onclick="kiDiakFelulet()">Nem regisztrálok</button>
     </div>`
 }
@@ -319,7 +333,7 @@ function diakAdatokHitelesitese()
 
 //#region Bejelentkezési felület generálása, kezelése
 
-function bejelentkezesiFelulet()
+function bejelentkezesiFeluletTanar()
 {
     fo.innerHTML = ''
 
@@ -351,7 +365,47 @@ function bejelentkezesiFelulet()
         <br>
 
         <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesTanar()">Bejelentkezés</button>
-        <button class="nincs_fiok" onclick="feluletGeneralas()">Nincs fiókom</button>
+        <button class="nincs_fiok" onclick="kijelentkezes()">Nincs fiókom</button>
+        <br>
+        <br>
+
+        <p id="jelzes"></p>
+    </div>`
+}
+
+function bejelentkezesiFeluletDiak()
+{
+    fo.innerHTML = ''
+
+    oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
+
+    logocim.title = 'TÁBLA - Bejelentkezési felület'
+
+    focim.textContent = 'TÁBLA - Bejelentkezési felület'
+
+    focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
+
+    navigacio.innerHTML =
+    `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
+
+    fo.innerHTML =
+    `<div class="keret_regisztracio">
+        <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
+
+        <label for="bejelentkezesi_nev">Név</label>
+        <br>
+        <input type="text" id="bejelentkezesi_nev">
+        <br>
+        <br>
+
+        <label for="bejelentkezesi_jelszo">Jelszó</label>
+        <br>
+        <input type="password" id="bejelentkezesi_jelszo">
+        <br>
+        <br>
+
+        <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesDiak()">Bejelentkezés</button>
+        <button class="nincs_fiok" onclick="kijelentkezes()">Nincs fiókom</button>
         <br>
         <br>
 
@@ -381,15 +435,11 @@ function bejelentkezesEllenorzesTanar()
 
                 navigacio.innerHTML =
                 `<div class="keret_navigacio">
-                    <button>Tanuló kiválasztása</button>
+                    <button onclick="tanuloKivalasztasa()">Tanuló kiválasztása</button>
                 </div>
 
                 <div class="keret_navigacio">
                     <button onclick="orarendLetrehozas()">Órarend</button>
-                </div>
-
-                <div class="keret_navigacio">
-                    <button>Osztályzatok lekérdezése</button>
                 </div>
 
                 <div class="keret_navigacio">
@@ -404,10 +454,66 @@ function bejelentkezesEllenorzesTanar()
                 `<div class="keret_fo">
                     <p>Nincs sürgős teendő!</p>
                 </div>`
-            }, 5000);
+            }, 3000);
         } else
             {
                 visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+
+                setTimeout(() => {
+                    visszajelzes.textContent = ''
+                }, 3000);
+            }
+}
+
+function bejelentkezesEllenorzesDiak()
+{
+    let nev = document.getElementById('bejelentkezesi_nev').value
+    let jelszo = document.getElementById('bejelentkezesi_jelszo').value
+    let visszajelzes = document.getElementById('jelzes')
+    let gomb = document.getElementById('bejelentkezes')
+
+    if (nev === bejelentkezesiAdatokDiak[0] && jelszo === bejelentkezesiAdatokDiak[1])
+        {
+            visszajelzes.textContent = 'Sikeres bejelentkezés!'
+
+            setTimeout(() => {
+                oldalcim.textContent = `TÁBLA - Tanulói felület`
+
+                logocim.title = 'TÁBLA - Tanulói felület'
+
+                focim.textContent = `TÁBLA - ${bejelentkezesiAdatokDiak[0]}`
+
+                focim.title = 'Diákként lehetősége van lekérni jelenlegi osztályzatait, illetve megtekinteni az órarendjét.'
+
+                navigacio.innerHTML =
+                `<div class="keret_navigacio">
+                    <button onclick="osztalyzatokLekerese()">Osztályzatok lekérése</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <button onclick="orarendLetrehozas()">Órarend</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <button onclick="adatokTorlese()">Adatok törlése</button>
+                </div>
+
+                <div class="keret_navigacio">
+                    <img src="./kepek/kijelentkezes.png" alt="Kijelentkezés." title="Kijelentkezés a fiókból." class="logreg" onclick="kijelentkezes()">
+                </div>`
+
+                fo.innerHTML =
+                `<div class="keret_fo">
+                    <p>Nincs sürgős teendő!</p>
+                </div>`
+            }, 3000);
+        } else
+            {
+                visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+
+                setTimeout(() => {
+                    visszajelzes.textContent = ''
+                }, 3000);
             }
 }
 
@@ -447,15 +553,11 @@ function kiTanariFelulet()
     </div>
 
     <div class="keret_navigacio">
-        <button disabled>Osztályzatok lekérdezése</button>
-    </div>
-
-    <div class="keret_navigacio">
         <button onclick="adatokTorlese()">Adatok törlése</button>
     </div>
         
     <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesEllenorzesEsGeneralas()">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFeluletTanar()">
 
         <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
@@ -482,11 +584,11 @@ function kiDiakFelulet()
 
     navigacio.innerHTML =
     `<div class="keret_navigacio">
-        <button onclick="orarendLetrehozas()">Órarend</button>
-    </div>
-
-    <div class="keret_navigacio">
         <button disabled>Osztályzatok lekérdezése</button>
+    </div>
+    
+    <div class="keret_navigacio">
+        <button onclick="orarendLetrehozas()">Órarend</button>
     </div>
 
     <div class="keret_navigacio">
@@ -494,7 +596,7 @@ function kiDiakFelulet()
     </div>
         
     <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesEllenorzesDiak()">
+        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFeluletDiak()">
 
         <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
@@ -503,6 +605,106 @@ function kiDiakFelulet()
     `<div class="keret_fo">
         <p>Nincs sürgős teendő!</p>
     </div>`
+}
+
+//#endregion
+
+//#region Easy kijelentkezés
+
+function kijelentkezes()
+{
+    bejelentkezesiAdatokTanar = []
+    bejelentkezesiAdatokDiak = []
+
+    feluletGeneralas()
+
+    console.log(bejelentkezesiAdatokTanar, bejelentkezesiAdatokDiak)
+}
+
+//#endregion
+
+//#region Tanulók kiválasztása a tanári felületen
+
+function tanuloKivalasztasa()
+{
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <h1 class="cimek">Osztályzatok beírása</h1>
+
+        <p id="tantargy">Tantárgy: ${bejelentkezesiAdatokTanar[2]}</p>
+
+        <table id="jegyek_tabla">
+            <tr class="jegyek">
+                <td class="nev">Név</td>
+                <td class="osztalyzatok">Jegyek</td>
+                <td colspan="5">Osztályzat</td>
+            </tr>
+        </table>
+    </div>`
+
+    let tablazat = document.getElementById('jegyek_tabla')
+
+    for (let i = 0; i < tanulokNeve.length; i++)
+        {
+            tablazat.innerHTML +=
+            `<tr class="jegyek">
+                <td class="nev">${tanulokNeve[i]}</td>
+                <td class="osztalyzatok" id="tanulo_${i+1}"></td>
+                <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 1)">1</td>
+                <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 2)">2</td>
+                <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 3)">3</td>
+                <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 4)">4</td>
+                <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 5)">5</td>
+            </tr>`
+        }
+}
+
+//#endregion
+
+//#region Jegyek hozzáadása a tömbhöz
+
+function jegyHozzaadas(index, jegy)
+{
+    document.getElementById(`tanulo_${index+1}`).textContent += `${jegy} `
+
+    if (index === 7)
+        {
+            jegyeim[bejelentkezesiAdatokTanar[2]].push(jegy)
+        }
+
+    console.log(jegyeim)
+}
+
+//#endregion
+
+//#region Osztályzatok lekérése diákként
+
+function osztalyzatokLekerese()
+{
+    fo.innerHTML =
+    `<div class="keret_fo">
+        <h1 class="cimek">${bejelentkezesiAdatokDiak[0]} osztályzatai</h1>
+
+        <table id="jegyek_tabla">
+            <tr class="jegyek">
+                <td class="tantargy">Tantárgy</td>
+                <td class="osztalyzatok">Jegyek</td>
+            </tr>
+        </table>
+    </div>`
+
+    let tablazat = document.getElementById('jegyek_tabla')
+
+    for (let i = 0; i < szakok.length; i++)
+        {
+            let jegy = jegyeim[szakok[i]]
+
+            tablazat.innerHTML +=
+            `<tr class="jegyek">
+                <td class="nev">${szakok[i]}</td>
+                <td class="osztalyzatok">${jegy} </td>
+            </tr>`
+        }
 }
 
 //#endregion
@@ -554,24 +756,24 @@ function orarendLetrehozas()
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Válócziné Tóth Ildikó', '35', 16, 'haladó angol')">szang</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Matematika', 'Borbély Katalin', '6', 'haladó angol')">mat</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '8', 16, 'haladó angol')">ang</td>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="4"></td>
             </tr>
 
             <tr>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '5', 16, 'kezdő angol')">ang</td>
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsusanna', '24', 16, 'kezdő angol')">aalkf</td>
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '23', 16, 'kezdő angol')">adatbkl</td>
-                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
@@ -595,7 +797,7 @@ function orarendLetrehozas()
             <tr>
                 <td rowspan="2"><strong>Csütörtök</strong></td>
                 <td rowspan="2"></td>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Irodalom', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '25', 16, 'haladó angol')">adatbkl</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'haladó angol')">aalkf</td>
@@ -603,7 +805,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '22', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '22', 16, 'kezdő angol')">webpr</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'kezdő angol')">aalkf</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Tátrai Krisztina', '35', 16, 'kezdő angol')">szang</td>
             </tr>

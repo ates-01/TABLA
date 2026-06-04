@@ -36,7 +36,8 @@ nav {
 }
 
 main {
-    height: 750px;
+    min-height: 750px;
+    padding: 0 0 2.5rem 0;
     border: 5px solid #1D0E0C;
     border-top: 2.5px solid #1D0E0C;
     border-bottom: 2.5px solid #1D0E0C;
@@ -119,8 +120,8 @@ b {
 }
 
 hr {
-    border: 2.5px solid #1D0E0C;
     background-color: #1D0E0C;
+    border: 2.5px solid #1D0E0C;
 }
 
 input, select, option {
@@ -184,7 +185,7 @@ input:hover, select:hover {
     transition: .125s;
 }
 
-.attr:hover {
+.attr:hover, .osztalyzat:hover {
     background-color: #FFF5E5;
     transition: .125s;
 }
@@ -211,6 +212,23 @@ input:hover, select:hover {
     margin: 0 0 0 5px;
 }
 
+.osztalyzatok {
+    width: 750px;
+}
+
+.osztalyzat {
+    width: 50px;
+    transition: .125s;
+}
+
+.jegyek {
+    height: 50px;
+}
+
+.nev, .tantargy {
+    width: 220px;
+}
+
 #logo {
     width: 250px;
 }
@@ -226,6 +244,10 @@ input:hover, select:hover {
 #bezaras:hover {
     scale: 0.9;
     transition: .125s;
+}
+
+#tantargy {
+    margin: 2.5rem 0;
 }
 
 .qm:hover, #logo:hover {
