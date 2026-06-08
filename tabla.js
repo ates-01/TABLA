@@ -25,6 +25,13 @@ let jegyeim = {
     "hittan": [],
 }
 
+let tanulmanyiAtlag = null
+let sajatAtlag = null
+let osszegTanulmanyi = null
+let osszegSajat = null
+let darabszamTanulmanyi = null
+let darabszamSajat = null
+
 const pipa_tanar_nev = document.createElement('img')
 const pipa_tanar_email = document.createElement('img')
 const pipa_tanar_jelszo_egy = document.createElement('img')
@@ -100,7 +107,9 @@ function feluletGeneralas()
         <br>
 
         <button class="regisztracios_gomb" id="tanar_gomb" onclick="bejelentkezesiFeluletTanar()" disabled>Fiók regisztrálása</button>
-        <button class="nincs_regisztracio" onclick="kiTanariFelulet()">Nem regisztrálok</button>
+        <button class="nincs_regisztracio" id="nem_regisztracio_1" onclick="kiTanariFelulet()">Nem regisztrálok</button>
+    
+        <p id="jelzes_1"></p>
     </div>
     
     <div class="keret_regisztracio">
@@ -137,7 +146,9 @@ function feluletGeneralas()
         <br>
 
         <button class="regisztracios_gomb" id="diak_gomb" onclick="bejelentkezesiFeluletDiak()" disabled>Fiók regisztrálása</button>
-        <button class="nincs_regisztracio" onclick="kiDiakFelulet()">Nem regisztrálok</button>
+        <button class="nincs_regisztracio" id="nem_regisztracio_2" onclick="kiDiakFelulet()">Nem regisztrálok</button>
+
+        <p id="jelzes_2"></p>
     </div>`
 }
 
@@ -335,82 +346,104 @@ function diakAdatokHitelesitese()
 
 function bejelentkezesiFeluletTanar()
 {
-    fo.innerHTML = ''
+    let nemRegisztralEgyGomb = document.getElementById('nem_regisztracio_1')
+    let nemRegisztralKettoGomb = document.getElementById('nem_regisztracio_2')
+    let visszajelzes = document.getElementById('jelzes_1')
 
-    oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
+    nemRegisztralEgyGomb.disabled = true
+    nemRegisztralKettoGomb.disabled = true
 
-    logocim.title = 'TÁBLA - Bejelentkezési felület'
+    visszajelzes.textContent = 'Sikeres regisztráció!'
 
-    focim.textContent = 'TÁBLA - Bejelentkezési felület'
+    setTimeout(() => {
+        fo.innerHTML = ''
 
-    focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
+        oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
 
-    navigacio.innerHTML =
-    `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
+        logocim.title = 'TÁBLA - Bejelentkezési felület'
 
-    fo.innerHTML =
-    `<div class="keret_regisztracio">
-        <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
+        focim.textContent = 'TÁBLA - Bejelentkezési felület'
 
-        <label for="bejelentkezesi_nev">Név</label>
-        <br>
-        <input type="text" id="bejelentkezesi_nev">
-        <br>
-        <br>
+        focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
 
-        <label for="bejelentkezesi_jelszo">Jelszó</label>
-        <br>
-        <input type="password" id="bejelentkezesi_jelszo">
-        <br>
-        <br>
+        navigacio.innerHTML =
+        `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
 
-        <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesTanar()">Bejelentkezés</button>
-        <button class="nincs_fiok" onclick="kijelentkezes()">Nincs fiókom</button>
-        <br>
-        <br>
+        fo.innerHTML =
+        `<div class="keret_regisztracio">
+            <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
 
-        <p id="jelzes"></p>
-    </div>`
+            <label for="bejelentkezesi_nev">Név</label>
+            <br>
+            <input type="text" id="bejelentkezesi_nev">
+            <br>
+            <br>
+
+            <label for="bejelentkezesi_jelszo">Jelszó</label>
+            <br>
+            <input type="password" id="bejelentkezesi_jelszo">
+            <br>
+            <br>
+
+            <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesTanar()">Bejelentkezés</button>
+            <button class="nincs_fiok" id="nincs_fiok_1" onclick="kijelentkezes()">Nincs fiókom</button>
+            <br>
+            <br>
+
+            <p id="jelzes"></p>
+        </div>`
+    }, 3000);
 }
 
 function bejelentkezesiFeluletDiak()
 {
-    fo.innerHTML = ''
+    let nemRegisztralEgyGomb = document.getElementById('nem_regisztracio_1')
+    let nemRegisztralKettoGomb = document.getElementById('nem_regisztracio_2')
+    let visszajelzes = document.getElementById('jelzes_2')
 
-    oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
+    nemRegisztralEgyGomb.disabled = true
+    nemRegisztralKettoGomb.disabled = true
 
-    logocim.title = 'TÁBLA - Bejelentkezési felület'
+    visszajelzes.textContent = 'Sikeres regisztráció!'
 
-    focim.textContent = 'TÁBLA - Bejelentkezési felület'
+    setTimeout(() => {
+        fo.innerHTML = ''
 
-    focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
+        oldalcim.textContent = 'TÁBLA - Bejelentkezési felület'
 
-    navigacio.innerHTML =
-    `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
+        logocim.title = 'TÁBLA - Bejelentkezési felület'
 
-    fo.innerHTML =
-    `<div class="keret_regisztracio">
-        <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
+        focim.textContent = 'TÁBLA - Bejelentkezési felület'
 
-        <label for="bejelentkezesi_nev">Név</label>
-        <br>
-        <input type="text" id="bejelentkezesi_nev">
-        <br>
-        <br>
+        focim.title = 'Bejelentkezés létező tanári vagy diák fiókkal az oldalra.'
 
-        <label for="bejelentkezesi_jelszo">Jelszó</label>
-        <br>
-        <input type="password" id="bejelentkezesi_jelszo">
-        <br>
-        <br>
+        navigacio.innerHTML =
+        `<marquee scrolldelay="60">Üdvözöljük a bejelentkezési felületen! Az alább látható menüben be tud jelentkezni tanárként vagy diákként egy létező fiókkal. Abban az esetben, ha még nem regisztrált az oldalra, vissza tud lépni a regisztrációs felületre.</marquee>`
 
-        <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesDiak()">Bejelentkezés</button>
-        <button class="nincs_fiok" onclick="kijelentkezes()">Nincs fiókom</button>
-        <br>
-        <br>
+        fo.innerHTML =
+        `<div class="keret_regisztracio">
+            <h1 class="cimek">Bejelentkezés létező fiókkal</h1>
 
-        <p id="jelzes"></p>
-    </div>`
+            <label for="bejelentkezesi_nev">Név</label>
+            <br>
+            <input type="text" id="bejelentkezesi_nev">
+            <br>
+            <br>
+
+            <label for="bejelentkezesi_jelszo">Jelszó</label>
+            <br>
+            <input type="password" id="bejelentkezesi_jelszo">
+            <br>
+            <br>
+
+            <button class="bejelentkezesi_gomb" id="bejelentkezes" onclick="bejelentkezesEllenorzesDiak()">Bejelentkezés</button>
+            <button class="nincs_fiok" id="nincs_fiok_2" onclick="kijelentkezes()">Nincs fiókom</button>
+            <br>
+            <br>
+
+            <p id="jelzes"></p>
+        </div>`
+    }, 3000);
 }
 
 function bejelentkezesEllenorzesTanar()
@@ -419,9 +452,12 @@ function bejelentkezesEllenorzesTanar()
     let jelszo = document.getElementById('bejelentkezesi_jelszo').value
     let visszajelzes = document.getElementById('jelzes')
     let gomb = document.getElementById('bejelentkezes')
+    let nincsFiok = document.getElementById('nincs_fiok_1')
 
     if (nev === bejelentkezesiAdatokTanar[0] && jelszo === bejelentkezesiAdatokTanar[1])
         {
+            nincsFiok.disabled = true
+
             visszajelzes.textContent = 'Sikeres bejelentkezés!'
 
             setTimeout(() => {
@@ -455,14 +491,21 @@ function bejelentkezesEllenorzesTanar()
                     <p>Nincs sürgős teendő!</p>
                 </div>`
             }, 3000);
-        } else
+        } else if (nev === '' || jelszo === '')
             {
-                visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+                visszajelzes.textContent = 'Mindkét mező kitöltése kötelező!'
 
                 setTimeout(() => {
                     visszajelzes.textContent = ''
                 }, 3000);
-            }
+            } else
+                {
+                    visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+
+                    setTimeout(() => {
+                        visszajelzes.textContent = ''
+                    }, 3000);
+                }
 }
 
 function bejelentkezesEllenorzesDiak()
@@ -471,9 +514,12 @@ function bejelentkezesEllenorzesDiak()
     let jelszo = document.getElementById('bejelentkezesi_jelszo').value
     let visszajelzes = document.getElementById('jelzes')
     let gomb = document.getElementById('bejelentkezes')
+    let nincsFiok = document.getElementById('nincs_fiok_2')
 
     if (nev === bejelentkezesiAdatokDiak[0] && jelszo === bejelentkezesiAdatokDiak[1])
         {
+            nincsFiok.disabled = true
+
             visszajelzes.textContent = 'Sikeres bejelentkezés!'
 
             setTimeout(() => {
@@ -507,14 +553,21 @@ function bejelentkezesEllenorzesDiak()
                     <p>Nincs sürgős teendő!</p>
                 </div>`
             }, 3000);
-        } else
+        } else if (nev === '' || jelszo === '')
             {
-                visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+                visszajelzes.textContent = 'Mindkét mező kitöltése kötelező!'
 
                 setTimeout(() => {
                     visszajelzes.textContent = ''
                 }, 3000);
-            }
+            } else
+                {
+                    visszajelzes.textContent = 'Sikertelen bejelentkezés!'
+
+                    setTimeout(() => {
+                        visszajelzes.textContent = ''
+                    }, 3000);
+                }
 }
 
 //#endregion
@@ -557,8 +610,6 @@ function kiTanariFelulet()
     </div>
         
     <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFeluletTanar()">
-
         <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
 
@@ -596,8 +647,6 @@ function kiDiakFelulet()
     </div>
         
     <div class="keret_navigacio">
-        <img src="./kepek/bejelentkezes.png" alt="Bejelentkezés." title="Bejelentkezés létező fiókkal." class="logreg" onclick="bejelentkezesiFeluletDiak()">
-
         <img src="./kepek/regisztracio.png" alt="Regisztráció." title="Regisztráció, új fiók létrehozása." class="logreg" onclick="feluletGeneralas()">
     </div>`
 
@@ -635,11 +684,15 @@ function tanuloKivalasztasa()
 
         <table id="jegyek_tabla">
             <tr class="jegyek">
-                <td class="nev">Név</td>
-                <td class="osztalyzatok">Jegyek</td>
-                <td colspan="5">Osztályzat</td>
+                <td class="nev"><b>Név</b></td>
+                <td class="osztalyzatok">
+                    <p class="hozzaadott_jegyek_cim"><b>Jegyek</b></p>
+                </td>
+                <td colspan="5"><b>Osztályzat</b></td>
             </tr>
         </table>
+
+        <p id="atlag_visszajelzes"></p>
     </div>`
 
     let tablazat = document.getElementById('jegyek_tabla')
@@ -648,8 +701,8 @@ function tanuloKivalasztasa()
         {
             tablazat.innerHTML +=
             `<tr class="jegyek">
-                <td class="nev">${tanulokNeve[i]}</td>
-                <td class="osztalyzatok" id="tanulo_${i+1}"></td>
+                <td class="nev"><strong>${tanulokNeve[i]}</strong></td>
+                <td class="osztalyzatok" id="tanulo_${i}"></td>
                 <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 1)">1</td>
                 <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 2)">2</td>
                 <td class="osztalyzat" onclick="jegyHozzaadas(${i}, 3)">3</td>
@@ -661,15 +714,30 @@ function tanuloKivalasztasa()
 
 //#endregion
 
-//#region Jegyek hozzáadása a tömbhöz
+//#region Jegyek hozzáadása a tömbhöz és átlagszámítás
 
 function jegyHozzaadas(index, jegy)
 {
-    document.getElementById(`tanulo_${index+1}`).textContent += `${jegy} `
+    document.getElementById(`tanulo_${index}`).innerHTML +=
+    `<p class="hozzaadott_jegyek">${jegy}</p>`
+
+    let atlagVisszajelzes = document.getElementById('atlag_visszajelzes')
+
+    osszegTanulmanyi += jegy
+    darabszamTanulmanyi++
+
+    tanulmanyiAtlag = osszegTanulmanyi / darabszamTanulmanyi
+
+    atlagVisszajelzes.innerHTML = `<b>Tanulmányi átlag:</b> <strong>${tanulmanyiAtlag.toFixed(2)}</strong>`
 
     if (index === 7)
         {
             jegyeim[bejelentkezesiAdatokTanar[2]].push(jegy)
+
+            osszegSajat += jegy
+            darabszamSajat++
+
+            sajatAtlag = osszegSajat / darabszamSajat
         }
 
     console.log(jegyeim)
@@ -687,24 +755,48 @@ function osztalyzatokLekerese()
 
         <table id="jegyek_tabla">
             <tr class="jegyek">
-                <td class="tantargy">Tantárgy</td>
-                <td class="osztalyzatok">Jegyek</td>
+                <td class="tantargy"><b>Tantárgy</b></td>
+                <td class="osztalyzatok">
+                    <p id="sajat_jegyek"><b>Jegyek</b></p>
+                </td>
             </tr>
         </table>
+
+        <p id="atlag_visszajelzes"></p>
     </div>`
 
     let tablazat = document.getElementById('jegyek_tabla')
+    let atlagVisszajelzes = document.getElementById('atlag_visszajelzes')
 
     for (let i = 0; i < szakok.length; i++)
         {
-            let jegy = jegyeim[szakok[i]]
+            const szak = szakok[i]
 
             tablazat.innerHTML +=
             `<tr class="jegyek">
-                <td class="nev">${szakok[i]}</td>
-                <td class="osztalyzatok">${jegy} </td>
+                <td class="nev"><strong>${szak}</strong></td>
+                <td class="osztalyzatok" id="${szak}_jegyek"></td>
             </tr>`
+
+            const jegyek = document.getElementById(`${szak}_jegyek`)
+
+            let jegy = ''
+
+            if (jegyeim[szak])
+                {
+                    const jegyekTomb = jegyeim[szak]
+
+                    for (let j = 0; j < jegyekTomb.length; j++)
+                        {
+                            jegy +=
+                            `<p class="hozzaadott_jegyek">${jegyeim[szak][j]}</p>`
+                        }
+                }
+
+            jegyek.innerHTML += jegy
         }
+
+    atlagVisszajelzes.innerHTML = `<b>Saját átlag:</b> <strong>${sajatAtlag.toFixed(2)}</strong>`
 }
 
 //#endregion
