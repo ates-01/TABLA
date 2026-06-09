@@ -848,24 +848,24 @@ function orarendLetrehozas()
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Válócziné Tóth Ildikó', '35', 16, 'haladó angol')">szang</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Matematika', 'Borbély Katalin', '6', 'haladó angol')">mat</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Kristó Ágnes', '8', 16, 'haladó angol')">ang</td>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="4"></td>
             </tr>
 
             <tr>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Angol', 'Bodócsné Dér Krisztina', '5', 16, 'kezdő angol')">ang</td>
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsusanna', '24', 16, 'kezdő angol')">aalkf</td>
                 <td class="attr" rowspan="2" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '23', 16, 'kezdő angol')">adatbkl</td>
-                <td class="attr" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td rowspan="2"></td>
             </tr>
 
             <tr>
-                <td class="attr" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '25', 16, 'kezdő angol')">webpr</td>
             </tr>
 
             <tr>
@@ -889,7 +889,7 @@ function orarendLetrehozas()
             <tr>
                 <td rowspan="2"><strong>Csütörtök</strong></td>
                 <td rowspan="2"></td>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Árvai Anita', '23', 16, 'haladó angol')">webpr</td>
                 <td class="attr" rowspan="2" onclick="oraTulajdonsagok('Irodalom', 'Blahó-Kiss Katalin', '18', 32, 'egész osztály')">iro</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Adatbázis-kezelés', 'Horváth Zoltán', '25', 16, 'haladó angol')">adatbkl</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'haladó angol')">aalkf</td>
@@ -897,7 +897,7 @@ function orarendLetrehozas()
             </tr>
 
             <tr>
-                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webinformatika', 'Kun Dániel', '22', 16, 'kezdő angol')">webpr</td>
+                <td class="attr" colspan="2" onclick="oraTulajdonsagok('Webprogramozás', 'Kun Dániel', '22', 16, 'kezdő angol')">webpr</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Asztali alkalmazás-fejlesztés', 'Tüskéné Dombi Zsuzsanna', '24', 16, 'kezdő angol')">aalkf</td>
                 <td class="attr" colspan="2" onclick="oraTulajdonsagok('Szakmai angol', 'Tátrai Krisztina', '35', 16, 'kezdő angol')">szang</td>
             </tr>
