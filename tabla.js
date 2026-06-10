@@ -684,15 +684,44 @@ function tanuloKivalasztasa()
 
         <table id="jegyek_tabla">
             <tr class="jegyek">
-                <td class="nev"><b>Név</b></td>
+                <td class="nev">
+                    <p class="hozzaadott_jegyek_cim"><b>Név</b></p>
+                </td>
                 <td class="osztalyzatok">
                     <p class="hozzaadott_jegyek_cim"><b>Jegyek</b></p>
                 </td>
-                <td colspan="5"><b>Osztályzat</b></td>
+                <td colspan="5">
+                    <p class="hozzaadott_jegyek_cim"><b>Osztályzat</b></p>
+                </td>
             </tr>
         </table>
 
         <p id="atlag_visszajelzes"></p>
+    </div>
+    
+    <div class="keret_fo">
+        <table id="sulyok_tabla">
+            <tr class="jegyek">
+                <td colspan="3">
+                    <p class="hozzaadott_jegyek_cim"><b>Súlyok</b></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>50%</label>
+                    <input type="radio" name="osztalyzat" id="otven" class="radio_suly" value="0.5">
+                </td>
+                <td>
+                    <label>100%</label>
+                    <input type="radio" name="osztalyzat" class="radio_suly" checked>
+                </td>
+                <td>
+                    <label>200%</label>
+                    <input type="radio" name="osztalyzat" id="ketszaz" class="radio_suly" value="2">
+                </td>
+            </tr>
+        </table>
     </div>`
 
     let tablazat = document.getElementById('jegyek_tabla')
@@ -722,6 +751,19 @@ function jegyHozzaadas(index, jegy)
     `<p class="hozzaadott_jegyek">${jegy}</p>`
 
     let atlagVisszajelzes = document.getElementById('atlag_visszajelzes')
+    let otvenSzazalek = Number(document.getElementById('otven').value)
+    let ketszazSzazalek = Number(document.getElementById('ketszaz').value)
+
+    if (otvenSzazalek.checked)
+        {
+            jegy *= otvenSzazalek
+        } else if (ketszazSzazalek.checked)
+            {
+                jegy *= ketszazSzazalek
+            } else
+                {
+                    jegy = jegy
+                }
 
     osszegTanulmanyi += jegy
     darabszamTanulmanyi++
@@ -741,6 +783,7 @@ function jegyHozzaadas(index, jegy)
         }
 
     console.log(jegyeim)
+    console.log(otvenSzazalek, ketszazSzazalek)
 }
 
 //#endregion
@@ -755,9 +798,11 @@ function osztalyzatokLekerese()
 
         <table id="jegyek_tabla">
             <tr class="jegyek">
-                <td class="tantargy"><b>Tantárgy</b></td>
+                <td class="tantargy">
+                    <p class="hozzaadott_jegyek_cim"><b>Tantárgy</b></p>
+                </td>
                 <td class="osztalyzatok">
-                    <p id="sajat_jegyek"><b>Jegyek</b></p>
+                    <p class="hozzaadott_jegyek_cim"><b>Jegyek</b></p>
                 </td>
             </tr>
         </table>

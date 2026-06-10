@@ -214,17 +214,13 @@ input:hover, select:hover {
 
 .osztalyzatok {
     display: flex;
-    width: 750px;
+    width: 600px;
     height: 50px;
 }
 
 .osztalyzat {
     width: 50px;
     transition: .125s;
-}
-
-.jegyek {
-    height: 50px;
 }
 
 .nev, .tantargy {
@@ -241,9 +237,16 @@ input:hover, select:hover {
 }
 
 .hozzaadott_jegyek_cim {
-    width: 27.5px;
     height: auto;
     margin: auto;
+}
+
+.radio_suly {
+    width: 100px;
+}
+
+.jegyek {
+    height: 50px;
 }
 
 #logo {
@@ -269,11 +272,6 @@ input:hover, select:hover {
 
 #atlag_visszajelzes {
     margin: 2.5rem 0 0 0;
-}
-
-#sajat_jegyek {
-    height: auto;
-    margin: auto;
 }
 
 .qm:hover, #logo:hover {
